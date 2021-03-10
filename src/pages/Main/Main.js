@@ -42,16 +42,12 @@ const Main = () => {
                         {
                             id: 1, 
                             label: "Table", 
-                            content: <Table 
-                                classN={activeTabIndex === 1 ? "table-tab": "inactive" } 
-                            />
+                            content: <Table />
                         },
                         {
                             id: 2, 
                             label: "Subscription",
-                            content: <Subscription 
-                                classN={activeTabIndex === 2 ? "subscription-tab ": "inactive"} 
-                            />
+                            content: <Subscription />
                         }
                     ]} 
                 />
