@@ -19,7 +19,6 @@ const Main = () => {
         )
     }, [dispatch]);
     const handleChange = (event) => {
-
     }
    
     return  (
