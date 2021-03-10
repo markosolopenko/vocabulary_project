@@ -1,12 +1,16 @@
 .tabs-container {
   display: flex;
   justify-content: center;
+  position: relative;
   .tab-box {
     width: 100px;
     .tab-box__label {
       cursor: pointer;
       width: 100px;
     }
+    // .underline {
+    //   border-bottom: 3px solid black;
+    // }
     .tab-box__content {
       display: block;
     }
@@ -14,4 +18,21 @@
       display: none;
     }
   }
+  .underline {
+    height: .25rem;
+    width: 100px;
+    background-color: black;
+    transition: .3s linear;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    border: none;
+    border-radius: 5px;
+  }
+  // .move-back {
+  //   transform: translateX(0);
+  // }
+  // .move-forward {
+  //   transform: translateX(100%);
+  // }
 }

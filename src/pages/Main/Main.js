@@ -24,8 +24,10 @@ const Main = () => {
             })
         )
     }, [dispatch]);
+    var undeline = document.querySelector('.underline');
     const setActiveTagIndexHandler = (id) => {
        setActiveTabIndex(id)
+       undeline.style.transform = `translateX(${100*(id-1)}%)`;
     }
     return  (
         <div className="main-page">
@@ -48,7 +50,7 @@ const Main = () => {
                             id: 2, 
                             label: "Subscription",
                             content: <Subscription />
-                        }
+                        },
                     ]} 
                 />
             </div>
