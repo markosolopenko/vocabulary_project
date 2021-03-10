@@ -1,9 +1,9 @@
 import React from 'react';
 import './table.scss'
 
-export const Table = (props) => {
+export const Table = () => {
     return (
-        <div className={props.index === 1  ? "table-tab" : "inactive"}>
+        <div className="table-tab">
             Lorem Ipsum is simply dummy text of the 
             printing and typesetting industry. Lorem Ipsum has been the 
             industry's standard dummy text ever since the 1500s, when

@@ -1,9 +1,9 @@
 import React from 'react';
 import './subscription.scss';
 
-export const Subscription = (props) => {
+export const Subscription = () => {
     return (
-        <div className={props.index === 2 ? "subscription-tab" : 'inactive'}>
+        <div className="subscription-tab">
             Lorem Ipsum is simply dummy text of the 
             printing and typesetting industry. Lorem Ipsum has been the 
             industry's standard dummy text ever since the 1500s, when

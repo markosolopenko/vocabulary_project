@@ -1,29 +1,3 @@
 .main-page {
     display: flex;
 }
-.tabs-box__links {
-    display: flex;
-}
-    
-.inactive {
-    display: none;
-}
-
-.tabs-box__links {
-    position: relative;
-}
-.underline {
-    width: 100px;
-    height: 3px;
-    background-color: black;
-    position: absolute;
-    top: 29px;
-}
-.move-line-right {
-    transform: translateX(100px);
-    transition: .3s linear;
-}
-.move-line-left {
-    transform: translateX(0);
-    transition: .3s linear;
-}

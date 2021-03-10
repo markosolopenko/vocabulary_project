@@ -5,17 +5,17 @@ import PagesForm from '../../components/Forms/PagesForm/PagesFrom';
 import SearchForm from '../../components/Forms/SearchForm/SearchForm';
 import WordsOnMainPage from '../../components/WordsOnMainPage/WordsOnMain';
 import { DispatchWordsContext, StateWordsContext } from '../../context/WordsContext';
-import { Tab } from '../../components/Tab/Tab';
 import './main.scss';
 import { Table } from '../../components/Tabs/Table';
 import { Subscription } from '../../components/Tabs/Subsccription';
+import { Tabs } from '../../components/Tabs/Tabs';
 
 
 const Main = () => {
-    const [tabsSwitch, setTabsSwitch] = useState(1);
+    const [activeTabIndex, setActiveTabIndex] = useState(1);
     const store = useContext(StateWordsContext);
     const dispatch = useContext(DispatchWordsContext);
-    const {firstHundredWords} = store;
+    const { firstHundredWords } = store;
     useEffect(() => {
         getHundredWords().then(data => 
             dispatch({
@@ -24,10 +24,10 @@ const Main = () => {
             })
         )
     }, [dispatch]);
-    const setIndexForTab = (index) => {
-        setTabsSwitch(index)
+    const setActiveTagIndexHandler = (id) => {
+       setActiveTabIndex(id)
     }
-   
+
     return  (
         <div className="main-page">
             <div className="main-page__item">
@@ -36,20 +36,14 @@ const Main = () => {
                 <PagesForm />
             </div>
             <div className="main-page__item tabs-box">
-                <div className="tabs-box__links">
-                    <Tab onClick={setIndexForTab} index={1} num={tabsSwitch}>Table</Tab>
-                    <Tab onClick={setIndexForTab} index={2} num={tabsSwitch}>Subscrioption</Tab>
-                    <div className={
-                        tabsSwitch === 2 ? "move-line-right underline" : 
-                        tabsSwitch === 1 ? "move-line-left underline": "underline"
-                        }></div>
-                </div>
-                
-                <div className="tabs-box__conntent">
-                    <Table index={tabsSwitch} />
-                    <Subscription index={tabsSwitch} />
-                </div>
-                    
+               <Tabs 
+                    activeTabId={activeTabIndex} 
+                    onClick={setActiveTagIndexHandler}
+                    tabsConfigArr={[
+                        {label: "Table", id: 1, content: <Table />},
+                        {label: "Subscription", id: 2, content: <Subscription />}
+                    ]} 
+                />
             </div>
         </div>
     )
