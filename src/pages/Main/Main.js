@@ -27,7 +27,6 @@ const Main = () => {
     const setActiveTagIndexHandler = (id) => {
        setActiveTabIndex(id)
     }
-
     return  (
         <div className="main-page">
             <div className="main-page__item">
@@ -35,13 +34,25 @@ const Main = () => {
                 <WordsOnMainPage words={firstHundredWords} />
                 <PagesForm />
             </div>
-            <div className="main-page__item tabs-box">
+            <div className="main-page__item">
                <Tabs 
                     activeTabId={activeTabIndex} 
                     onClick={setActiveTagIndexHandler}
                     tabsConfigArr={[
-                        {label: "Table", id: 1, content: <Table />},
-                        {label: "Subscription", id: 2, content: <Subscription />}
+                        {
+                            id: 1, 
+                            label: "Table", 
+                            content: <Table 
+                                classN={activeTabIndex === 1 ? "table-tab": "inactive" } 
+                            />
+                        },
+                        {
+                            id: 2, 
+                            label: "Subscription",
+                            content: <Subscription 
+                                classN={activeTabIndex === 2 ? "subscription-tab ": "inactive"} 
+                            />
+                        }
                     ]} 
                 />
             </div>

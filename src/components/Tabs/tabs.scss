@@ -1,3 +1,17 @@
 .tabs-container {
   display: flex;
+  justify-content: center;
+  .tab-box {
+    width: 100px;
+    .tab-box__label {
+      cursor: pointer;
+      width: 100px;
+    }
+    .tab-box__content {
+      display: block;
+    }
+    .inactive {
+      display: none;
+    }
+  }
 }
