@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-import { Table } from './components/Tabs/Table';
 import Main from './pages/Main/Main';
 import  Words from './pages/Words/Words';
 

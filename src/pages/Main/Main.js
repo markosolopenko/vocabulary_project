@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { wordsActions } from '../../actions/wordsActions';
 import { getHundredWords } from '../../api/getHundredWords';
 import PagesForm from '../../components/Forms/PagesForm/PagesFrom';
@@ -25,9 +24,6 @@ const Main = () => {
             })
         )
     }, [dispatch]);
-    const handleChange = (event) => {
-
-    }
     const setIndexForTab = (index) => {
         setTabsSwitch(index)
     }
@@ -41,13 +37,17 @@ const Main = () => {
             </div>
             <div className="main-page__item tabs-box">
                 <div className="tabs-box__links">
-                    <Tab onClick={setIndexForTab} index={1}>Table</Tab>
-                    <Tab onClick={setIndexForTab} index={2}>Subscrioption</Tab>
+                    <Tab onClick={setIndexForTab} index={1} num={tabsSwitch}>Table</Tab>
+                    <Tab onClick={setIndexForTab} index={2} num={tabsSwitch}>Subscrioption</Tab>
+                    <div className={
+                        tabsSwitch === 2 ? "move-line-right underline" : 
+                        tabsSwitch === 1 ? "move-line-left underline": "underline"
+                        }></div>
                 </div>
                 
                 <div className="tabs-box__conntent">
-                    <Table classN={tabsSwitch === 1 ? "active" : "table-tab"} />
-                    <Subscription classN={tabsSwitch === 2 ? "active": "subscription-tab"} />
+                    <Table index={tabsSwitch} />
+                    <Subscription index={tabsSwitch} />
                 </div>
                     
             </div>
