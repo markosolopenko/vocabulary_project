@@ -1,38 +1,21 @@
-.tabs-container {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  .tab-box {
-    width: 100px;
-    .tab-box__label {
+.tabs {
+  &__item {
+    display: flex;
+    position: relative;
+    &__label {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      width: 100px;
     }
-    // .underline {
-    //   border-bottom: 3px solid black;
-    // }
-    .tab-box__content {
-      display: block;
-    }
-    .inactive {
-      display: none;
+    &__underline {
+      height: 2px;
+      background-color: black;
+      transition: .1s linear;
+      border: none;
+      border-radius: 5px;
+      position: absolute;
     }
   }
-  .underline {
-    height: .25rem;
-    width: 100px;
-    background-color: black;
-    transition: .3s linear;
-    position: absolute;
-    top: 8px;
-    left: 0;
-    border: none;
-    border-radius: 5px;
-  }
-  // .move-back {
-  //   transform: translateX(0);
-  // }
-  // .move-forward {
-  //   transform: translateX(100%);
-  // }
 }
