@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { wordsActions } from '../../actions/wordsActions';
-import { getHundredWords } from '../../api/getHundredWords';
-import PagesForm from '../../components/Forms/PagesForm/PagesFrom';
-import SearchForm from '../../components/Forms/SearchForm/SearchForm';
-import WordsOnMainPage from '../../components/WordsOnMainPage/WordsOnMain';
 import { DispatchWordsContext, StateWordsContext } from '../../context/WordsContext';
+import { getHundredWords } from '../../api/getHundredWords';
+import { PagesForm, 
+         SearchForm, 
+         Subscription, 
+         WordsOnMainPage, 
+} from '../../components/index';
+import { Tabs, Table } from '../../common/index';
+
 import './main.scss';
-import { Table } from '../../components/Tabs/Table';
-import { Subscription } from '../../components/Tabs/Subsccription';
-import { Tabs } from '../../components/Tabs/Tabs';
 
 
 const Main = () => {
@@ -48,17 +49,7 @@ const Main = () => {
               id: 2,
               label: "Subscription",
               content: <Subscription />
-            },
-            {
-              id: 3,
-              label: "Table",
-              content: <Table />
-            },
-            {
-              id: 4,
-              label: "Table",
-              content: <Table />
-            },
+            }
           ]}
         />
       </div>

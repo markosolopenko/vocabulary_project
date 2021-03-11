@@ -2,7 +2,7 @@ import React from 'react';
 import s from './header.module.scss';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className={s.header}>
       <Link to="/main" className="link">
@@ -16,5 +16,3 @@ const Header = () => {
     </div>
   )
 };
-
-export default Header;

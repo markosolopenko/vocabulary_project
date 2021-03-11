@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './pagesForm.module.scss';
 
-const PagesForm = () => {
+export const PagesForm = () => {
   return (
     <div className={s["pages-form"]}>
       <div className={s["pages-form__arrowback"]}>
@@ -14,5 +14,3 @@ const PagesForm = () => {
     </div>
   )
 }
-
-export default PagesForm;

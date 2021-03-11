@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './serachForm.module.scss';
 
-const SearchForm = () => {
+export const SearchForm = () => {
   return (
     <div className={s["search-form"]}>
       <input
@@ -12,5 +12,3 @@ const SearchForm = () => {
     </div>
   )
 }
-
-export default SearchForm;

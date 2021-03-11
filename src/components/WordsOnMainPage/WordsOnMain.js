@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './wordsOnMainPage.module.scss';
 
-const WordsOnMainPage = ({ words }) => {
+export const WordsOnMainPage = ({ words }) => {
   return (
     <div className={s["words-box"]}>
       {
@@ -16,5 +16,3 @@ const WordsOnMainPage = ({ words }) => {
     </div>
   )
 };
-
-export default WordsOnMainPage;

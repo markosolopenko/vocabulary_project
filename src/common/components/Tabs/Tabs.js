@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import './tabs.scss'
 
 export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
@@ -8,7 +8,7 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
     left: 0
   });
   const ReduceLabels = () => {
-    const labels = tabsConfigArr.map((tab) => 
+    const labels = useMemo(() => tabsConfigArr.map(tab => 
        <div
         ref={(ref) => {
           refs.current[tab.id] = ref  
@@ -22,7 +22,7 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
       >
         {tab.label}
       </div>
-    )
+    ), []); 
     return <div className="tabs__item">{labels}</div>
   }
   useEffect(() => {
