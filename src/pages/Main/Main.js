@@ -7,13 +7,14 @@ import { PagesForm,
          Subscription, 
          WordsOnMainPage, 
 } from '../../components/index';
-import { Tabs, Table } from '../../common/index';
-
+import { Tabs, Table, Conjugation } from '../../common/index';
 import './main.scss';
+import { getWord } from '../../api/getWord';
 
 
-const Main = () => {
+export const Main = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(1);
+  const [word, setWord] = useState('');
   const store = useContext(StateWordsContext);
   const dispatch = useContext(DispatchWordsContext);
   const { firstHundredWords } = store;
@@ -22,12 +23,15 @@ const Main = () => {
       dispatch({
         type: wordsActions.FETCH_FIRST_HUNDRED_WORDS,
         payload: data.details
-      })
-    )
+      }));
+      getWord("Алмейда").then(response => 
+        setWord(response)  
+      );
   }, [dispatch]);
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id)
   };
+  console.log(word);
   return (
     <div className="main-page">
       <div className="main-page__item">
@@ -43,7 +47,7 @@ const Main = () => {
             {
               id: 1,
               label: "Table",
-              content: <Table />,
+              // content: <Table />,
             },
             {
               id: 2,
@@ -53,8 +57,16 @@ const Main = () => {
           ]}
         />
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Disdsd</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Conjugation rows={word} />
+        </tbody>
+      </table>
     </div>
   )
 };
-
-export default Main;

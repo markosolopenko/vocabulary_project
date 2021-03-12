@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Words = () => {
+export const Words = () => {
   return (
     <div className="words-page">
 
     </div>
   )
 };
-
-export default Words;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Header } from './components/index';
-import Main from './pages/Main/Main';
-import Words from './pages/Words/Words';
+import {Main} from './pages/Main/Main';
+import {Words} from './pages/Words/Words';
 
-const App = () => {
+export const App = () => {
   return (
     <Route>
       <div className="app">
@@ -22,5 +22,3 @@ const App = () => {
     </Route>
   )
 };
-
-export default App;
