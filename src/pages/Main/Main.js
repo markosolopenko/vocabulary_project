@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+
 import { wordsActions } from '../../actions/wordsActions';
 import { DispatchWordsContext, StateWordsContext } from '../../context/WordsContext';
 import { getHundredWords } from '../../api/getHundredWords';
@@ -7,16 +8,21 @@ import { PagesForm,
          Subscription, 
          WordsOnMainPage, 
 } from '../../components/index';
-import { Tabs, Table, Conjugation } from '../../common/index';
+import { Tabs, Table } from '../../common/index';
 import './main.scss';
 
 
 export const Main = () => {
+  const { FETCH_FIRST_HUNDRED_WORDS } = wordsActions;
+  const [activeTabIndex, setActiveTabIndex] = useState(1);
+  const store = useContext(StateWordsContext);
+  const dispatch = useContext(DispatchWordsContext);
+  const { firstHundredWords, wordJson } = store;
   const configArr = [
     {
       id: 1,
       label: "Table",
-      // content: <Table />,
+      content: <Table wordJson={wordJson} />,
     },
     {
       id: 2,
@@ -24,11 +30,6 @@ export const Main = () => {
       content: <Subscription />
     }
   ];
-  const { FETCH_FIRST_HUNDRED_WORDS } = wordsActions;
-  const [activeTabIndex, setActiveTabIndex] = useState(1);
-  const store = useContext(StateWordsContext);
-  const dispatch = useContext(DispatchWordsContext);
-  const { firstHundredWords, wordJson } = store;
   useEffect(() => {
     getHundredWords().then(data =>
       dispatch({
@@ -36,11 +37,11 @@ export const Main = () => {
         payload: data.details
       })
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id)
   };
-  console.log(wordJson);
   return (
     <div className="main-page">
       <div className="main-page__item">

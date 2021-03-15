@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { DispatchWordsContext, StateWordsContext } from '../../../context/WordsContext';
-import s from './serachForm.module.scss';
+
+import { DispatchWordsContext } from '../../../context/WordsContext';
 import { wordsActions } from '../../../actions/wordsActions';
 import { getWord } from '../../../api/getWord';
+
+import s from './serachForm.module.scss';
 
 
 export const SearchForm = () => {
   const [value, setValue] = useState('');
-  const store = useContext(StateWordsContext);
   const dispatch = useContext(DispatchWordsContext);
   const { FETCH_WORD } = wordsActions;
   const handleChange = (event) => {

@@ -7,7 +7,7 @@ export const DispatchWordsContext = createContext(null);
 
 const initialState = {
   firstHundredWords: [],
-  wordJson: '',
+  wordJson: {},
 }
 
 
