@@ -1,0 +1,72 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { wordsActions } from '../../actions/wordsActions';
+import { DispatchWordsContext, StateWordsContext } from '../../context/WordsContext';
+import { getHundredWords } from '../../api/getHundredWords';
+import { PagesForm, 
+         SearchForm, 
+         Subscription, 
+         WordsOnMainPage, 
+} from '../../components/index';
+import { Tabs, Table, Conjugation } from '../../common/index';
+import './main.scss';
+import { getWord } from '../../api/getWord';
+
+
+export const Main = () => {
+  const [activeTabIndex, setActiveTabIndex] = useState(1);
+  const [word, setWord] = useState('');
+  const store = useContext(StateWordsContext);
+  const dispatch = useContext(DispatchWordsContext);
+  const { firstHundredWords } = store;
+  useEffect(() => {
+    getHundredWords().then(data =>
+      dispatch({
+        type: wordsActions.FETCH_FIRST_HUNDRED_WORDS,
+        payload: data.details
+      }));
+      getWord("Алмейда").then(response => 
+        setWord(response)  
+      );
+  }, [dispatch]);
+  const handleSetActiveTagIndex = (id) => {
+    setActiveTabIndex(id)
+  };
+  console.log(word);
+  return (
+    <div className="main-page">
+      <div className="main-page__item">
+        <SearchForm />
+        <WordsOnMainPage words={ firstHundredWords } />
+        <PagesForm />
+      </div>
+      <div className="main-page__item">
+        <Tabs
+          activeTabId={activeTabIndex}
+          onClick={handleSetActiveTagIndex}
+          tabsConfigArr={[
+            {
+              id: 1,
+              label: "Table",
+              // content: <Table />,
+            },
+            {
+              id: 2,
+              label: "Subscription",
+              content: <Subscription />
+            }
+          ]}
+        />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Disdsd</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Conjugation rows={word} />
+        </tbody>
+      </table>
+    </div>
+  )
+};
