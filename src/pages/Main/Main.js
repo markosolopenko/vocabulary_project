@@ -9,29 +9,38 @@ import { PagesForm,
 } from '../../components/index';
 import { Tabs, Table, Conjugation } from '../../common/index';
 import './main.scss';
-import { getWord } from '../../api/getWord';
 
 
 export const Main = () => {
+  const configArr = [
+    {
+      id: 1,
+      label: "Table",
+      // content: <Table />,
+    },
+    {
+      id: 2,
+      label: "Subscription",
+      content: <Subscription />
+    }
+  ];
+  const { FETCH_FIRST_HUNDRED_WORDS } = wordsActions;
   const [activeTabIndex, setActiveTabIndex] = useState(1);
-  const [word, setWord] = useState('');
   const store = useContext(StateWordsContext);
   const dispatch = useContext(DispatchWordsContext);
-  const { firstHundredWords } = store;
+  const { firstHundredWords, wordJson } = store;
   useEffect(() => {
     getHundredWords().then(data =>
       dispatch({
-        type: wordsActions.FETCH_FIRST_HUNDRED_WORDS,
+        type: FETCH_FIRST_HUNDRED_WORDS,
         payload: data.details
-      }));
-      getWord("Алмейда").then(response => 
-        setWord(response)  
-      );
-  }, [dispatch]);
+      })
+    );
+  }, []);
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id)
   };
-  console.log(word);
+  console.log(wordJson);
   return (
     <div className="main-page">
       <div className="main-page__item">
@@ -43,30 +52,9 @@ export const Main = () => {
         <Tabs
           activeTabId={activeTabIndex}
           onClick={handleSetActiveTagIndex}
-          tabsConfigArr={[
-            {
-              id: 1,
-              label: "Table",
-              // content: <Table />,
-            },
-            {
-              id: 2,
-              label: "Subscription",
-              content: <Subscription />
-            }
-          ]}
+          tabsConfigArr={configArr}
         />
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Disdsd</th>
-          </tr>
-        </thead>
-        <tbody>
-          <Conjugation rows={word} />
-        </tbody>
-      </table>
     </div>
   )
 };

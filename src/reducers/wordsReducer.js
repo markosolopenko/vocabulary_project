@@ -1,16 +1,20 @@
 import { wordsActions } from '../actions/wordsActions';
 
+const { FETCH_FIRST_HUNDRED_WORDS, 
+        FETCH_WORD,
+} = wordsActions;
+
 export const wordsReducer = (state, action) => {
   switch (action.type) {
-    case wordsActions.FETCH_FIRST_HUNDRED_WORDS:
+    case FETCH_FIRST_HUNDRED_WORDS:
       return {
         ...state,
         firstHundredWords: action.payload
       };
-    case wordsActions.FETCH_WORD:
+    case FETCH_WORD:
       return {
         ...state,
-        wordToSearch: action.payload.word
+        wordJson: action.payload
       }
     default: {
       return state;
