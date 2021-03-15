@@ -8,15 +8,15 @@ export const Conjugation = () => {
   const reduceRows = useMemo(() => {
     return rows.map((row, id) => {
       return (
-        <td key={id} className={s['conjugation-column__row']}>
+        <div key={id} className={s['conjugation-column__row']}>
           {row}
-        </td>
+        </div>
       )
     })
   }, [rows]); 
   return (
-    <tr className={s.conjugation__column}>
+    <div className={s.conjugation__column}>
       {reduceRows}
-    </tr>
+    </div>
   )
 }

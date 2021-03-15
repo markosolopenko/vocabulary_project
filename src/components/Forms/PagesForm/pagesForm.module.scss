@@ -1,0 +1,22 @@
+.pages-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(50, 50, 148);
+  height: 50px;
+  &__item {
+    display: flex;
+    align-items: center;
+    .arrowback, .arrowforward {
+      width: 15px;
+      height: 15px;
+      color: white;
+      cursor: pointer;
+    }
+    .input {
+      border: none;
+      outline: none;
+      margin: 0 5px;
+    }
+  }
+}
