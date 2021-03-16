@@ -8,7 +8,8 @@ export const DispatchWordsContext = createContext(null);
 const initialState = {
   words: [],
   wordJson: {},
-  page: 20
+  page: 1,
+  amountOfPages: 0
 }
 
 

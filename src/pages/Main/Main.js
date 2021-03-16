@@ -13,7 +13,7 @@ import './main.scss';
 
 
 export const Main = () => {
-  const { FETCH_FIRST_HUNDRED_WORDS } = wordsActions;
+  const { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES } = wordsActions;
   const [activeTabIndex, setActiveTabIndex] = useState(1);
   const store = useContext(StateWordsContext);
   const dispatch = useContext(DispatchWordsContext);
@@ -22,7 +22,7 @@ export const Main = () => {
     {
       id: 1,
       label: "Table",
-      content: <Table wordJson={wordJson} />,
+      content: <Table wordJson={wordJson} />
     },
     {
       id: 2,
@@ -32,12 +32,12 @@ export const Main = () => {
   ];
   const pageSize = 100;
   useEffect(() => {
-    getWords({page, pageSize}).then(data =>
-      dispatch({
-        type: FETCH_FIRST_HUNDRED_WORDS,
-        payload: data.details
-      })
-    );
+    getWords({page, pageSize}).then(data => {
+      return ( 
+        dispatch({ type: FETCH_FIRST_HUNDRED_WORDS, payload: data.details }),
+        dispatch({ type: GET_AMOUNT_OF_PAGES, payload: { value: data.pagesCount } })
+      )
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   const handleSetActiveTagIndex = (id) => {

@@ -8,15 +8,35 @@
     display: flex;
     align-items: center;
     .arrowback, .arrowforward {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
+      padding: 4px;
       color: white;
       cursor: pointer;
+      border: 1px solid white;
+      border-radius: 10px;
+      &:hover {
+        background-color: white;
+        color: rgb(50, 50, 148);
+      }
+    }
+    .letter {
+      margin-right: 5px;
+      color: white;
+      font-size: 14px;
+    }
+    .pagesCount {
+      color: rgb(228, 228, 228);
+      font-size: 13px;
+      margin-right: 5px;
+      cursor: pointer;
+      text-decoration: underline;
     }
     .input {
       border: none;
       outline: none;
       margin: 0 5px;
+      height: 20px;
     }
   }
 }
