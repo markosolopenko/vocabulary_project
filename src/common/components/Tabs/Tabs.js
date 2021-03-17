@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 
 import s from './tabs.module.scss'
 
-export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
+export const Tabs = ({ activeTabId, onClick, tabsConfigArr, isFlexible }) => {
   const refs = useRef({});
   const [currTabWidth, setCurrentTabWidth] = useState({
     width: 0,
@@ -12,7 +12,7 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
     return tabsConfigArr.map(tab =>
       <div
         ref={(ref) => { refs.current[tab.id] = ref }}
-        className={s.tabs__titles__label}
+        className={`${s.tabs__titles__label} ${isFlexible && s['tabs__titles__label--flexible']}`}
         key={tab.id}
         onClick={(e) => {
           onClick(tab.id)
@@ -46,17 +46,17 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
   }, [activeTabId]);
   return (
     <div className={s.tabs}>
-      <div className={s.tabs__titles}>
+      <div className={`${s.tabs__titles} ${isFlexible && s['tabs__titles--flexible']}`}>
           {reduceLabels}
       </div>
-      <div className={s.tabs__item}>
+      <div className={s['tabs__indicator-space']}>
         <div
-          className={s.tabs__item__underline}
+          className={s.tabs__underline}
           style={currTabWidth}
         >
         </div>
       </div>
-      <div className={s.tabs__item}>
+      <div className={s.tabs__content}>
         {reduceContent}
       </div>
     </div>

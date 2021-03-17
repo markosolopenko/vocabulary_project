@@ -1,7 +1,21 @@
 .search-form {
-  width: 300px;
   display: flex;
-  .search-form__input {
-    width: inherit;
+  &__input {
+    flex-grow: 1;
+    padding: 5px 2px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+  }
+  &__button {
+    border: 1px solid orange;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+
+    &:hover {
+      background-color: orange;
+      color: white;
+    }
   }
 }

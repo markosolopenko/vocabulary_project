@@ -1,12 +1,12 @@
 .words-box {
-  height: 508px;
+  height: calc(100vh - 140px);
   overflow-y: scroll;
-  width: 300px;
+
   border-bottom: 2px solid rgb(216, 213, 213);
   border-right: 2px solid rgb(216, 213, 213);
-  .words-box__item {
+  &__item {
     border-bottom: 1px solid rgb(216, 213, 213);
-    height: 20px;
+    padding: 5px;
     cursor: pointer;
       &:hover {
         background-color: rgb(59, 57, 57);

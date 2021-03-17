@@ -27,7 +27,13 @@ export const SearchForm = () => {
         className={s["search-form__input"]}
         placeholder="Search Word"
       />
-      <button type="submit" onClick={ handleSearchClick }>Search</button>
+      <button 
+        type="submit" 
+        onClick={ handleSearchClick }
+        className={s["search-form__button"]}
+      >
+        Search
+      </button>
     </div>
   )
 }

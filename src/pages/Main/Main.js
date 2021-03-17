@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import './main.scss';
 
-
 export const Main = () => {
   const defaultTabId = 1;
   const { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES } = wordsActionTypes;
@@ -48,13 +47,14 @@ export const Main = () => {
   };
   return (
     <div className="main-page">
-      <div className="main-page__item">
+      <div className="main-page__aside">
         <SearchForm />
         <WordsOnMainPage words={ words } />
         <PagesForm />
       </div>
-      <div className="main-page__item">
+      <div className="main-page__content">
         <Tabs
+          isFlexible
           activeTabId={ activeTabIndex }
           onClick={ handleSetActiveTagIndex }
           tabsConfigArr={ configArr }
