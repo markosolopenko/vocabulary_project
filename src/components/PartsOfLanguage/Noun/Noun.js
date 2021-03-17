@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { StateWordsContext } from '../../../context/WordsContext';
+import { useSelector } from 'react-redux'
 
 import s from './noun.module.scss';
 
 export const Noun = () => {
-  const store = useContext(StateWordsContext);
-  const { pluralCases, singleCases } = store;
+  const store = useSelector(state => state);
+  const { wordsReducer } = store;
+  const { pluralCases, singleCases } = wordsReducer;
   return (
     <div className={s['noun-table__column']}>
       { 

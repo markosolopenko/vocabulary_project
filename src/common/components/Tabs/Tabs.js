@@ -7,7 +7,6 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
     width: 0,
     left: 0
   });
-  const [count, setCount] = useState(0);
   const reduceLabels = useMemo(() => {
     return tabsConfigArr.map(tab =>
       <div
@@ -58,7 +57,6 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
       <div className="tabs__item">
         {reduceContent}
       </div>
-      <button onClick={() => setCount(count + 1)}>Plus 1</button>
     </div>
   )
 }

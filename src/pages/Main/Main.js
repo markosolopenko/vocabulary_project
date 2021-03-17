@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { wordsActions } from '../../actions/wordsActions';
-import { DispatchWordsContext, StateWordsContext } from '../../context/WordsContext';
 import { getWords } from '../../api/getWords';
 import { PagesForm, 
          SearchForm, 
@@ -9,15 +8,19 @@ import { PagesForm,
          WordsOnMainPage, 
 } from '../../components/index';
 import { Tabs, Table } from '../../common/index';
+
+import { useDispatch, useSelector } from 'react-redux'
+
 import './main.scss';
 
 
 export const Main = () => {
   const { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES } = wordsActions;
   const [activeTabIndex, setActiveTabIndex] = useState(1);
-  const store = useContext(StateWordsContext);
-  const dispatch = useContext(DispatchWordsContext);
-  const { words, wordJson, page } = store;
+  const store = useSelector(state => state);
+  const dispatch = useDispatch();
+  const { wordsReducer } = store;
+  const { words, wordJson, page } = wordsReducer;
   const configArr = [
     {
       id: 1,
@@ -43,6 +46,7 @@ export const Main = () => {
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id)
   };
+  console.log(wordJson);
   return (
     <div className="main-page">
       <div className="main-page__item">

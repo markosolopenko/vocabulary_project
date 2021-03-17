@@ -1,27 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
-import { DispatchWordsContext } from '../../../context/WordsContext';
 import { wordsActions } from '../../../actions/wordsActions';
-import { getWord } from '../../../api/getWord';
+import { getWordByPage } from '../../../api/getWordByPage';
+import { useDispatch } from 'react-redux'
 
 import s from './serachForm.module.scss';
 
-
 export const SearchForm = () => {
   const [value, setValue] = useState('');
-  const dispatch = useContext(DispatchWordsContext);
-  const { FETCH_WORD } = wordsActions;
+  const dispatch = useDispatch();
+  const { FETCH_WORD, SET_PAGE } = wordsActions;
   const handleChange = (event) => {
     setValue(event.target.value);
   }  
   const hanldeSearchClick = () => {
-    getWord(value).then(data =>  
-      dispatch({
-        type: FETCH_WORD,
-        payload: data
-      })
-    );
+    getWordByPage(value).then(data => {
+      dispatch({ type: FETCH_WORD, payload: data })
+      dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } })
+    });
   };
+  
   return (
     <div className={s["search-form"]}>
       <input

@@ -8,7 +8,14 @@ const { FETCH_FIRST_HUNDRED_WORDS,
         DECREMENT_PAGE
 } = wordsActions;
 
-export const wordsReducer = (state, action) => {
+const initialState = {
+  words: [],
+  wordJson: {},
+  page: 1,
+  amountOfPages: 0
+}
+
+export const wordsReducer = (state=initialState, action) => {
   switch (action.type) {
     case FETCH_FIRST_HUNDRED_WORDS:
       return {
