@@ -11,9 +11,9 @@ export const App = () => {
         <Header />
         <main>
           <Switch>
-            <Route exact path="/main" component={Main} />
+            <Route path="/main" component={Main} />
             <Route path="/words" component={Words} />
-            <Route>
+            <Route exact path="/">
               <Redirect to="/main" />
             </Route>
           </Switch>

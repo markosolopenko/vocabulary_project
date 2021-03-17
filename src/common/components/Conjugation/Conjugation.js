@@ -1,22 +1,25 @@
 import React, { useMemo, useState } from 'react';
 import s from './conjugation.module.scss';
 
+
+const rows = [ 
+  "Називний", "Родовий", "Давальний", 
+  "Знахідний", "Орудний", "Місцевий", "Кличний"
+];
+
 export const Conjugation = () => {
-  const [rows, setRows] = useState([
-    "Називний", "Родовий", "Давальний", "Знахідний", "Орудний", "Місцевий", "Кличний"
-  ]);
-  const reduceRows = useMemo(() => {
+  const renderedRows = useMemo(() => {
     return rows.map((row, id) => {
       return (
-        <td key={id} className={s['conjugation-column__row']}>
+        <div key={id} className={s['conjugation-column__row']}>
           {row}
-        </td>
+        </div>
       )
     })
-  }, [rows]); 
+  }, []); 
   return (
-    <tr className={s.conjugation__column}>
-      {reduceRows}
-    </tr>
+    <div className={s.conjugation__column}>
+      {renderedRows}
+    </div>
   )
 }

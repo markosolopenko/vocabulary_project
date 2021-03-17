@@ -1,42 +1,43 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import './tabs.scss'
+
+import s from './tabs.module.scss'
 
 export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
   const refs = useRef({});
-  const [currTabWidth, setCurrTabWidth] = useState({
+  const [currTabWidth, setCurrentTabWidth] = useState({
     width: 0,
     left: 0
   });
-  const [count, setCount] = useState(0);
   const reduceLabels = useMemo(() => {
     return tabsConfigArr.map(tab =>
       <div
         ref={(ref) => { refs.current[tab.id] = ref }}
-        className="tabs__item__label"
+        className={s.tabs__titles__label}
         key={tab.id}
         onClick={(e) => {
           onClick(tab.id)
-          setCurrTabWidth({
+          setCurrentTabWidth({
             width: e.target.clientWidth,
             left: e.target.offsetLeft
           });
         }}
+        style={tab.id === activeTabId ? {color: "#FCA311"}: null}
       >
         {tab.label}
       </div>
     )
-  }, [tabsConfigArr, onClick]);
+  }, [tabsConfigArr, onClick, activeTabId]);
   const reduceContent = useMemo(() => {
     return tabsConfigArr.map(tab => {
       return (
-        <div className="tabs__item__content" key={tab.id}>
+        <div className={s.tabs__item__content} key={tab.id}>
           {(activeTabId === tab.id) && tab.content}
         </div>
       )
     })
   }, [tabsConfigArr, activeTabId]);
   useEffect(() => {
-    setCurrTabWidth(
+    setCurrentTabWidth(
       {
         width: refs.current[activeTabId].clientWidth,
         left: refs.current[activeTabId].offsetLeft
@@ -44,21 +45,20 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr }) => {
     );
   }, [activeTabId]);
   return (
-    <div className="tabs">
-      <div className="tabs__item">
-        {reduceLabels}
+    <div className={s.tabs}>
+      <div className={s.tabs__titles}>
+          {reduceLabels}
       </div>
-      <div className="tabs__item">
+      <div className={s.tabs__item}>
         <div
-          className="tabs__item__underline"
+          className={s.tabs__item__underline}
           style={currTabWidth}
         >
         </div>
       </div>
-      <div className="tabs__item">
+      <div className={s.tabs__item}>
         {reduceContent}
       </div>
-      <button onClick={() => setCount(count + 1)}>Plus 1</button>
     </div>
   )
 }

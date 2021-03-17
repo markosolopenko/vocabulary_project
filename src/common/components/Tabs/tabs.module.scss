@@ -1,21 +1,33 @@
 .tabs {
-  &__item {
+  &__titles {
     display: flex;
     position: relative;
+    background: rgb(53, 50, 50);
+    width: 1138px;
     &__label {
-      padding: 5px;
+      padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      width: 569px;
+      color: white;
+
+      &:hover {
+        color: #FCA311;
+      }
     }
+  }
+  &__item {
+    position: relative;
     &__underline {
-      height: 2px;
-      background-color: black;
+      height: 3px;
+      background: linear-gradient(45deg, #FCA311 30%, #FFBA08 90%);
       transition: .1s linear;
       border: none;
       border-radius: 5px;
       position: absolute;
     }
   }
+
 }
