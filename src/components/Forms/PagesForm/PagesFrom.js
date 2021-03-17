@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { ReactComponent as  ArrowLeft } from '../../../assets/arrow-left-solid.svg';
 import { ReactComponent as ArrowRight } from '../../../assets/arrow-right-solid.svg';
-import { wordsActions } from '../../../actions/wordsActions';
+import { wordsActionTypes } from '../../../actions/wordsActionTypes';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -10,7 +10,7 @@ import s from './pagesForm.module.scss';
 
 
 export const PagesForm = () => {
-  const { SET_PAGE, ADD_PAGE, DECREMENT_PAGE } = wordsActions;
+  const { SET_PAGE, ADD_PAGE, DECREMENT_PAGE } = wordsActionTypes;
   const dispatch = useDispatch();
   const store = useSelector(state => state);
   const { wordsReducer } = store;

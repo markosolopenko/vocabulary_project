@@ -1,4 +1,4 @@
-import { wordsActions } from '../actions/wordsActions';
+import { wordsActionTypes } from '../actions/wordsActionTypes';
 
 const { FETCH_FIRST_HUNDRED_WORDS, 
         FETCH_WORD,
@@ -6,7 +6,7 @@ const { FETCH_FIRST_HUNDRED_WORDS,
         GET_AMOUNT_OF_PAGES,
         ADD_PAGE,
         DECREMENT_PAGE
-} = wordsActions;
+} = wordsActionTypes;
 
 const initialState = {
   words: [],

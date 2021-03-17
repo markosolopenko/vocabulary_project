@@ -1,4 +1,4 @@
-export const wordsActions = {
+export const wordsActionTypes = {
   FETCH_FIRST_HUNDRED_WORDS: 'FETCH_FIRST_HUNDRED_WORDS',
   FETCH_WORD: 'FETCH_WORD',
   SET_PAGE: 'SET_PAGE',

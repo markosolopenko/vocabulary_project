@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { wordsActions } from '../../actions/wordsActions';
+import { wordsActionTypes } from '../../actions/wordsActionTypes';
 import { getWords } from '../../api/getWords';
 import { PagesForm, 
          SearchForm, 
@@ -16,7 +16,7 @@ import './main.scss';
 
 export const Main = () => {
   const defaultTabId = 1;
-  const { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES } = wordsActions;
+  const { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES } = wordsActionTypes;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector(state => state);
   const dispatch = useDispatch();
