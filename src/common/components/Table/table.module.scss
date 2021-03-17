@@ -1,0 +1,16 @@
+.table-tab {
+  width: 700px;
+  &__item {
+    display: flex;
+    .word {
+      color: rgb(21, 21, 160);
+      font-weight: 600;
+    }
+    .dash {
+      margin: 0 5px 0 5px;
+    } 
+    .part {
+      color: rgb(129, 126, 126);
+    }
+  }
+}

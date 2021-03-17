@@ -1,4 +1,0 @@
-export const wordsActions = {
-    FETCH_FIRST_HUNDRED_WORDS: "FETCH_FIRST_HUNDRED_WORDS",
-    FETCH_WORD: "FETCH_WORD" 
-} 
