@@ -3,14 +3,20 @@
     display: flex;
     position: relative;
     background: rgb(53, 50, 50);
-    width: 1138px;
+
+    &--flexible {
+      justify-content: space-between;
+    }
+
     &__label {
+      &--flexible {
+        flex-grow: 1;
+      }
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      width: 569px;
       color: white;
 
       &:hover {
@@ -18,16 +24,20 @@
       }
     }
   }
-  &__item {
+  &__indicator-space {
     position: relative;
-    &__underline {
-      height: 3px;
-      background: linear-gradient(45deg, #FCA311 30%, #FFBA08 90%);
-      transition: .1s linear;
-      border: none;
-      border-radius: 5px;
-      position: absolute;
-    }
   }
 
+  &__underline {
+    height: 3px;
+    background: linear-gradient(45deg, #FCA311 30%, #FFBA08 90%);
+    transition: .1s linear;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+  }
+
+  &__content {
+    padding: 10px;
+  }
 }

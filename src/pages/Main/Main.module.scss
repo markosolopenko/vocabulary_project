@@ -1,0 +1,17 @@
+.main-page {
+  display: flex;
+  height: calc(100vh - 70px);
+  &__aside {
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    &__list {
+      flex-grow: 1;
+      overflow-y: scroll;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+  }
+}

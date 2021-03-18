@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { wordsActionTypes } from '../../actions/wordsActionTypes';
 import { getWords } from '../../api/getWords';
-import { PagesForm, 
-         SearchForm, 
+import { SearchForm,  
          Subscription, 
          WordsOnMainPage, 
 } from '../../components/index';
@@ -11,8 +10,7 @@ import { Tabs, Table } from '../../common/index';
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import './main.scss';
-
+import s from './Main.module.scss';
 
 export const Main = () => {
   const defaultTabId = 1;
@@ -47,17 +45,19 @@ export const Main = () => {
     setActiveTabIndex(id)
   };
   return (
-    <div className="main-page">
-      <div className="main-page__item">
+    <div className={s['main-page']}>
+      <div className={s['main-page__aside']}>
         <SearchForm />
-        <WordsOnMainPage words={ words } />
-        <PagesForm />
+        <div className={s['main-page__aside__list']}>
+          <WordsOnMainPage words={words} />
+        </div>
       </div>
-      <div className="main-page__item">
+      <div className={s['main-page__content']}>
         <Tabs
-          activeTabId={ activeTabIndex }
-          onClick={ handleSetActiveTagIndex }
-          tabsConfigArr={ configArr }
+          isFlexible
+          activeTabId={activeTabIndex}
+          onClick={handleSetActiveTagIndex}
+          tabsConfigArr={configArr}
         />
       </div>
     </div>

@@ -4,7 +4,7 @@ import { wordsActionTypes } from '../../../actions/wordsActionTypes';
 import { getWordByPage } from '../../../api/getWordByPage';
 import { useDispatch } from 'react-redux'
 
-import s from './serachForm.module.scss';
+import s from './SerachForm.module.scss';
 
 export const SearchForm = () => {
   const [value, setValue] = useState('');
@@ -27,7 +27,13 @@ export const SearchForm = () => {
         className={s["search-form__input"]}
         placeholder="Search Word"
       />
-      <button type="submit" onClick={ handleSearchClick }>Search</button>
+      <button 
+        type="submit" 
+        onClick={ handleSearchClick }
+        className={s["search-form__button"]}
+      >
+        Search
+      </button>
     </div>
   )
 }

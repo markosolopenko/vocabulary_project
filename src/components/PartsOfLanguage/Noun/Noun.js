@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux'
 
-import s from './noun.module.scss';
+import s from './Noun.module.scss';
 
 export const Noun = () => {
   const store = useSelector(state => state);
