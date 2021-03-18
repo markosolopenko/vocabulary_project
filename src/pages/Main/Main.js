@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { wordsActionTypes } from '../../actions/wordsActionTypes';
 import { getWords } from '../../api/getWords';
-import { SearchForm, 
-         Pagination, 
+import { SearchForm,  
          Subscription, 
          WordsOnMainPage, 
 } from '../../components/index';
@@ -52,7 +51,6 @@ export const Main = () => {
         <div className={s['main-page__aside__list']}>
           <WordsOnMainPage words={words} />
         </div>
-        <Pagination />
       </div>
       <div className={s['main-page__content']}>
         <Tabs

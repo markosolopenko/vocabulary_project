@@ -1,4 +1,3 @@
-export {Pagination} from './Pagination/Pagination';
 export {SearchForm} from './Forms/SearchForm/SearchForm';
 export {Header} from './Header/Header';
 export {Noun} from './PartsOfLanguage/Noun/Noun';
