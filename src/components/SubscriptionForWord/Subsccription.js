@@ -1,5 +1,4 @@
 import React from 'react';
-import './subscription.scss';
 
 export const Subscription = () => {
   return (

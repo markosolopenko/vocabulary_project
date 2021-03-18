@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 
-import s from './tabs.module.scss'
+import s from './Tabs.module.scss'
 
 export const Tabs = ({ activeTabId, onClick, tabsConfigArr, isFlexible }) => {
   const refs = useRef({});
@@ -26,7 +26,7 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr, isFlexible }) => {
         {tab.label}
       </div>
     )
-  }, [tabsConfigArr, onClick, activeTabId]);
+  }, [tabsConfigArr, onClick, activeTabId, isFlexible]);
   const reduceContent = useMemo(() => {
     return tabsConfigArr.map(tab => {
       return (
