@@ -29,7 +29,7 @@ export const Pagination = ({ onChange, activePage, totalPages }) => {
         <input
           className={s.pagination__form__input}
           onChange={handleChange}
-          value={localStorage.getItem('page') <= totalPages && localStorage.getItem('page')}
+          value={localStorage.getItem('page')}
         />
       </div>
       <div className={s.pagination__text}>з</div>
