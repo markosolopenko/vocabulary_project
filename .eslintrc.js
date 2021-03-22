@@ -26,7 +26,8 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'react/self-closing-comp': 0,
-    'no-unused-vars': 0,
     'no-trailing-spaces': 0,
+    'no-unused-vars': 0,
+    'indent': 0,
   },
 };
