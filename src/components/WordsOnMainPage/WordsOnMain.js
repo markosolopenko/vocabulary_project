@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { getWord } from '../../api/getWord';
-import { wordsActionTypes } from '../../actions/wordsActionTypes';
+import { FETCH_WORD } from '../../actions';
 
 import s from './WordsOnMainPage.module.scss';
 
@@ -11,7 +11,6 @@ export const WordsOnMainPage = ({ words }) => {
   const myRef = useRef({});
   const [idOfEl, setId] = useState();
   const dispatch = useDispatch();
-  const { FETCH_WORD } = wordsActionTypes;
   const handleWordClick = (word) => {
     getWord(word).then((data) => dispatch({ type: FETCH_WORD, payload: data }));
   };

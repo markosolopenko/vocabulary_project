@@ -1,13 +1,11 @@
-import { wordsActionTypes } from '../actions/wordsActionTypes';
-
-const {
+import {
   FETCH_FIRST_HUNDRED_WORDS,
   FETCH_WORD,
   SET_PAGE,
   GET_AMOUNT_OF_PAGES,
   ADD_PAGE,
   DECREMENT_PAGE,
-} = wordsActionTypes;
+} from '../actions';
 
 const initialState = {
   words: [],

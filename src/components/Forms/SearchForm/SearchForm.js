@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { wordsActionTypes } from '../../../actions/wordsActionTypes';
+import { FETCH_WORD, SET_PAGE } from '../../../actions';
 import { getWordByPage } from '../../../api/getWordByPage';
 
 import s from './SerachForm.module.scss';
@@ -10,7 +10,6 @@ import s from './SerachForm.module.scss';
 export const SearchForm = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const { FETCH_WORD, SET_PAGE } = wordsActionTypes;
   const handleChange = (event) => {
     setValue(event.target.value);
   };

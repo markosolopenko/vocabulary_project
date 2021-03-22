@@ -1,8 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { wordsActionTypes } from '../../actions/wordsActionTypes';
+import {
+  FETCH_FIRST_HUNDRED_WORDS,
+  GET_AMOUNT_OF_PAGES,
+  SET_PAGE,
+  ADD_PAGE,
+  DECREMENT_PAGE,
+} from '../../actions';
 import { getWords } from '../../api/getWords';
 import { SearchForm, Subscription, WordsOnMainPage } from '../../components';
 import { Tabs, Table, Pagination } from '../../common';
@@ -11,13 +17,6 @@ import s from './Main.module.scss';
 
 export const Main = () => {
   const defaultTabId = 1;
-  const {
-    FETCH_FIRST_HUNDRED_WORDS,
-    GET_AMOUNT_OF_PAGES,
-    SET_PAGE,
-    ADD_PAGE,
-    DECREMENT_PAGE,
-  } = wordsActionTypes;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -44,19 +43,13 @@ export const Main = () => {
           dispatch({ type: GET_AMOUNT_OF_PAGES, payload: { value: data.pagesCount } })
         );
       })
-      .catch((err) => console.log('Something went wrong...', new Error(err)));
+      .catch((err) => new Error(err));
   }, [page]);
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id);
   };
   const handleChangeForPaginationInput = (pageNum) => {
     dispatch({ type: SET_PAGE, payload: { page: pageNum } });
-  };
-  const createIncrementPageAction = () => {
-    dispatch({ type: ADD_PAGE });
-  };
-  const createDecrementPageAction = () => {
-    dispatch({ type: DECREMENT_PAGE });
   };
   return (
     <div className={s['main-page']}>
@@ -69,8 +62,6 @@ export const Main = () => {
           activePage={page}
           totalPages={amountOfPages}
           onChange={handleChangeForPaginationInput}
-          arrowForwardOnClick={createIncrementPageAction}
-          arrowBackOnClick={createDecrementPageAction}
         />
       </div>
       <div className={s['main-page__content']}>
