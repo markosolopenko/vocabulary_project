@@ -13,9 +13,10 @@
     border-radius: 10px;
     border: 1px solid white;
     cursor: pointer;
+
     &:hover {
       background-color: white;
-      color: rgb(50, 50, 148);
+      color: rgb(53, 50, 50);
     }
   }
   &__text {
@@ -25,7 +26,7 @@
     cursor: pointer;
     text-decoration: underline;
     color: orange;
-    font-size: 13px;
+    font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   &__form {

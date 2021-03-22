@@ -29,5 +29,6 @@ module.exports = {
     'no-trailing-spaces': 0,
     'no-unused-vars': 0,
     'indent': 0,
+    'react/react-in-jsx-scope': 0,
   },
 };
