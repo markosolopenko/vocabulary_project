@@ -5,17 +5,13 @@ const { REACT_APP_GET_WORDS_URL } = process.env;
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    return new Promise((resolve, reject) => {
-      resolve(response);
-    });
+    return Promise.resolve(response);
   },
   (error) => {
     if (!error.response) {
-      return new Promise((resolve, reject) => {
-        reject(error);
-      });
+      return new Promise.reject(error);
     }
-    if (error.response.status === 400 || error.response.status === 404) {
+    if (error.response.status === 400) {
       window.location = '/main';
     }
   },
@@ -27,6 +23,6 @@ export const getWords = async (page) => {
     const res = await axiosInstance.get(url);
     return res.data;
   } catch (err) {
-    return `Something wetn wrong${new Error(err)}`;
+    return `Something went wrong${new Error(err)}`;
   }
 };
