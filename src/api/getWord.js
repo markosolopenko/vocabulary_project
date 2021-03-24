@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const getWord = (word) => {
-  return (
-    axios.get(`http://localhost:8080/api/dictionary/search/${word}`)
-      .then(res => res.data)
-  );
+const { REACT_APP_GET_WORD_URL } = process.env;
+
+export const getWord = async (word) => {
+  const res = await axios.get(`${REACT_APP_GET_WORD_URL}${word}`);
+  return res.data;
 };

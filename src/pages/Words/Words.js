@@ -1,9 +1,5 @@
 import React from 'react';
 
 export const Words = () => {
-  return (
-    <div className="words-page">
-
-    </div>
-  )
+  <div className="words-page">Hello</div>;
 };
