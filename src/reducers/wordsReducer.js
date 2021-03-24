@@ -1,11 +1,4 @@
-import {
-  FETCH_FIRST_HUNDRED_WORDS,
-  FETCH_WORD,
-  SET_PAGE,
-  GET_AMOUNT_OF_PAGES,
-  ADD_PAGE,
-  DECREMENT_PAGE,
-} from '../actions';
+import { FETCH_FIRST_HUNDRED_WORDS, FETCH_WORD, SET_PAGE, GET_AMOUNT_OF_PAGES } from '../actions';
 
 const initialState = {
   words: [],
@@ -35,16 +28,6 @@ export const wordsReducer = (state = initialState, action) => {
       return {
         ...state,
         amountOfPages: action.payload.value,
-      };
-    case ADD_PAGE:
-      return {
-        ...state,
-        page: Number(state.page) + 1,
-      };
-    case DECREMENT_PAGE:
-      return {
-        ...state,
-        page: Number(state.page) - 1,
       };
     default: {
       return state;

@@ -2,16 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  FETCH_FIRST_HUNDRED_WORDS,
-  GET_AMOUNT_OF_PAGES,
-  SET_PAGE,
-  ADD_PAGE,
-  DECREMENT_PAGE,
-} from '../../actions';
+import { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES, SET_PAGE } from '../../actions';
 import { getWords } from '../../api/getWords';
 import { SearchForm, Subscription, WordsOnMainPage } from '../../components';
-import { Tabs, Table, Pagination } from '../../common';
+import { Tabs, Pagination } from '../../common';
 
 import s from './Main.module.scss';
 
@@ -26,7 +20,7 @@ export const Main = () => {
     {
       id: 1,
       label: 'Табличка',
-      content: <Table wordJson={wordJson} />,
+      content: <div>Hello</div>,
     },
     {
       id: 2,
@@ -34,7 +28,6 @@ export const Main = () => {
       content: <Subscription />,
     },
   ];
-
   useEffect(() => {
     getWords(page)
       .then((data) => {
