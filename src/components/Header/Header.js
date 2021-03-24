@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import s from './Header.module.scss';
+import s from "./Header.module.scss";
 
 export const Header = () => {
   return (
@@ -15,5 +15,5 @@ export const Header = () => {
         </Link>
       </div>
     </div>
-  )
+  );
 };
