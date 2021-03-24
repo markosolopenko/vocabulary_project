@@ -53,7 +53,6 @@ export const Main = () => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
   };
-  console.log(queryString);
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
