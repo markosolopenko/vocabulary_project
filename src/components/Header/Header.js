@@ -11,7 +11,7 @@ export const Header = () => {
       </Link>
       <div className={s['header__nav-bar']}>
         <Link to="/words" className="link">
-          <div className={s['nav-bar__item']}>words</div>
+          <div className={s['header__nav-bar__item']}>words</div>
         </Link>
       </div>
     </div>

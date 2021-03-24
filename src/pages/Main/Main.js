@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FETCH_FIRST_HUNDRED_WORDS, GET_AMOUNT_OF_PAGES, SET_PAGE } from '../../actions';
-import { getWords } from '../../api/getWords';
+import {
+  FETCH_FIRST_HUNDRED_WORDS,
+  GET_AMOUNT_OF_PAGES,
+  SET_PAGE,
+  FETCH_WORD,
+} from '../../actions';
+import { getWords, getWordByPage, getWord } from '../../api';
 import { SearchForm, Subscription, WordsOnMainPage } from '../../components';
 import { Tabs, Pagination } from '../../common';
 
@@ -44,10 +49,20 @@ export const Main = () => {
   const handleChangeForPaginationInput = (pageNum) => {
     dispatch({ type: SET_PAGE, payload: { page: pageNum } });
   };
+  const handleSearchButtonClick = (value) => {
+    getWordByPage(value)
+      .then((data) => {
+        dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
+      })
+      .catch((err) => new Error(err));
+    getWord(value).then((data) => {
+      dispatch({ type: FETCH_WORD, payload: data });
+    });
+  };
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
-        <SearchForm />
+        <SearchForm onChange={handleSearchButtonClick} />
         <div className={s['main-page__aside__list']}>
           <WordsOnMainPage words={words} />
         </div>
