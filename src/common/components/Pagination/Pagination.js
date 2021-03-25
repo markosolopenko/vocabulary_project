@@ -20,9 +20,9 @@ export const Pagination = ({ onChange, activePage, totalPages, setQueryString, q
         <input
           className={s.pagination__form__input}
           onChange={(e) => {
-            // if (Number(e.target.value) <= totalPages) {
-            setQueryString(e.target.value);
-            // }
+            if (Number(e.target.value) <= totalPages) {
+              setQueryString(e.target.value);
+            }
           }}
           value={activePage}
         />
