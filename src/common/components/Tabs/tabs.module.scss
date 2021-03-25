@@ -20,7 +20,7 @@
       color: white;
 
       &:hover {
-        color: #FCA311;
+        color: #fca311;
       }
     }
   }
@@ -30,8 +30,8 @@
 
   &__underline {
     height: 3px;
-    background: linear-gradient(45deg, #FCA311 30%, #FFBA08 90%);
-    transition: .1s linear;
+    background: linear-gradient(45deg, #fca311 30%, #ffba08 90%);
+    transition: 0.1s linear;
     border: none;
     border-radius: 5px;
     position: absolute;
