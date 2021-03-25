@@ -30,6 +30,9 @@ module.exports = {
     'no-unused-vars': 0,
     'indent': 0,
     'react/react-in-jsx-scope': 0,
+<<<<<<< HEAD
     'consistent-return': 0
+=======
+>>>>>>> develop
   },
 };
