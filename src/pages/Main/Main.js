@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { FETCH_FIRST_HUNDRED_WORDS, SET_PAGE, FETCH_WORD } from '../../actions';
 import { getWords, getWordByPage, getWord } from '../../api';
-import { SearchForm, Subscription, WordsOnMainPage } from '../../components';
+import { SearchForm, Subscription, WordsOnMainPage, Noun } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
 import s from './Main.module.scss';
@@ -16,11 +16,17 @@ export const Main = () => {
   const dispatch = useDispatch();
   const { wordsReducer } = store;
   const { words, wordJson, page, amountOfPages } = wordsReducer;
+  const tablesConfig = [
+    {
+      content: <Noun wordJson={wordJson} />,
+      part: ['іменник чоловічого роду', 'прізвище 2', 'прізвище 1', 'числівник типу "два"'],
+    },
+  ];
   const configArr = [
     {
       id: 1,
       label: 'Табличка',
-      content: <TableContainer wordJson={wordJson} />,
+      content: <TableContainer wordJson={wordJson} tablesConfigArray={tablesConfig} />,
     },
     {
       id: 2,

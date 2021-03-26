@@ -1,0 +1,38 @@
+.noun-table {
+  padding: 10px;
+  width: 800px;
+  &__head {
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      color: rgb(51, 51, 187);
+      border-bottom: 2px solid rgb(51, 51, 187);
+      padding: 5px;
+    }
+  }
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    &__conjunction {
+      display: flex;
+      flex-direction: column;
+      color: rgb(51, 51, 187);
+      font-weight: 500;
+      flex-grow: 1;
+      &__item {
+        flex-grow: 1;
+        border-bottom: 2px solid rgb(51, 51, 187);
+        padding: 10px 4px 5px 4px;
+      }
+    }
+    &__row {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      &__item {
+        border-bottom: 1px solid rgb(187, 186, 186);
+        padding: 10px 4px 10px 4px;
+      }
+    }
+  }
+}

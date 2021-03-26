@@ -1,10 +1,10 @@
 .table-container {
-  display: flex;
-  justify-content: center;
   padding: 10px;
-  // background-color: aqua;
   &__item {
     display: flex;
+    width: max-content;
+    margin: 0 auto;
+    padding: 7px;
     &__word {
       color: rgb(52, 52, 221);
       font-weight: 700;
@@ -15,5 +15,9 @@
     &__part {
       color: rgb(128, 120, 120);
     }
+  }
+  &__line {
+    height: 1px;
+    background-color: rgb(148, 144, 144);
   }
 }

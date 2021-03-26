@@ -30,6 +30,7 @@ module.exports = {
     'no-unused-vars': 0,
     'indent': 0,
     'react/react-in-jsx-scope': 0,
-    'consistent-return': 0
+    'consistent-return': 0,
+    'implicit-arrow-linebreak': 0,
   },
 };
