@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FETCH_FIRST_HUNDRED_WORDS, SET_PAGE, FETCH_WORD } from '../../actions';
 import { getWords, getWordByPage, getWord } from '../../api';
 import { SearchForm, Subscription, WordsOnMainPage } from '../../components';
-import { Tabs, Table, Pagination } from '../../common';
+import { Tabs, Pagination, TableContainer } from '../../common';
 
 import s from './Main.module.scss';
 
@@ -20,7 +20,7 @@ export const Main = () => {
     {
       id: 1,
       label: 'Табличка',
-      content: <Table wordJson={wordJson} />,
+      content: <TableContainer wordJson={wordJson} />,
     },
     {
       id: 2,
