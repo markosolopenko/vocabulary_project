@@ -28,9 +28,10 @@ module.exports = {
     'react/self-closing-comp': 0,
     'no-trailing-spaces': 0,
     'no-unused-vars': 0,
-    'indent': 0,
+    indent: 0,
     'react/react-in-jsx-scope': 0,
     'consistent-return': 0,
     'implicit-arrow-linebreak': 0,
+    'operator-linebreak': 0,
   },
 };

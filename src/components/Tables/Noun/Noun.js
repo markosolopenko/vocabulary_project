@@ -1,15 +1,20 @@
 import s from './Noun.module.scss';
 
 export const Noun = ({ wordJson }) => {
-  const conjuctions = [
-    'Називний',
-    'Родовий',
-    'Давальний',
-    'Знахідний',
-    'Орудний',
-    'Місцевий',
-    'Кличний',
-  ];
+  let conjuctions = [];
+  if (wordJson.part === 'числівник типу "два"') {
+    conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий'];
+  } else {
+    conjuctions = [
+      'називний',
+      'родовий',
+      'давальний',
+      'знахідний',
+      'орудний',
+      'місцевий',
+      'кличний',
+    ];
+  }
   return (
     <table className={s['noun-table']}>
       <thead className={s['noun-table__head']}>
@@ -28,14 +33,21 @@ export const Noun = ({ wordJson }) => {
           ))}
         </tr>
         <tr className={s['noun-table__body__row']}>
-          {Object.values(wordJson.singleCases).map((item, id) => (
+          {Object.values(
+            wordJson.pluralCases || wordJson.singleCases || wordJson.singleMaleCases,
+          ).map((item, id) => (
             <td className={s['noun-table__body__row__item']} key={id}>
               {item}
             </td>
           ))}
         </tr>
         <tr className={s['noun-table__body__row']}>
-          {Object.values(wordJson.pluralCases).map((item, id) => (
+          {Object.values(
+            wordJson.pluralCases ||
+              wordJson.pluralMaleCases ||
+              wordJson.singleFemaleCases ||
+              wordJson.singleMaleFemaleCases,
+          ).map((item, id) => (
             <td className={s['noun-table__body__row__item']} key={id}>
               {item}
             </td>

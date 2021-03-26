@@ -19,7 +19,7 @@ export const Main = () => {
   const tablesConfig = [
     {
       content: <Noun wordJson={wordJson} />,
-      part: ['іменник чоловічого роду', 'прізвище 2', 'прізвище 1', 'числівник типу "два"'],
+      part: ['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"'],
     },
   ];
   const configArr = [
