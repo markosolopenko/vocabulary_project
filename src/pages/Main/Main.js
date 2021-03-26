@@ -46,7 +46,6 @@ export const Main = () => {
   const handleSearchButtonClick = (value) => {
     getWordByPage(value).then((data) => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
-      // setQueryString(data.pageNumber);
     });
     getWord(value).then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });

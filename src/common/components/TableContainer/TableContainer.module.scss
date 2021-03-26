@@ -1,3 +1,19 @@
 .table-container {
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  // background-color: aqua;
+  &__item {
+    display: flex;
+    &__word {
+      color: rgb(52, 52, 221);
+      font-weight: 700;
+    }
+    &__dash {
+      color: rgb(128, 120, 120);
+    }
+    &__part {
+      color: rgb(128, 120, 120);
+    }
+  }
 }
