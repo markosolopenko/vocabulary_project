@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useQueryState } from 'react-router-use-location-state';
 
 import { FETCH_FIRST_HUNDRED_WORDS, SET_PAGE, FETCH_WORD } from '../../actions';
 import { getWords, getWordByPage, getWord } from '../../api';
@@ -10,6 +11,7 @@ import { Tabs, Pagination, TableContainer } from '../../common';
 import s from './Main.module.scss';
 
 export const Main = () => {
+  const [queryString, setQueryString] = useQueryState('page', 1);
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector((state) => state);
@@ -18,12 +20,7 @@ export const Main = () => {
   const { words, wordJson, page, amountOfPages } = wordsReducer;
   const tablesConfig = [
     {
-      content: (
-        <Noun
-          wordJson={wordJson}
-          part={['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"']}
-        />
-      ),
+      content: <Noun wordJson={wordJson} part={['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"']} />,
     },
   ];
   const configArr = [
@@ -60,6 +57,7 @@ export const Main = () => {
     getWord(value).then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
+    // setQueryString(page);
   };
   return (
     <div className={s['main-page']}>
@@ -72,15 +70,12 @@ export const Main = () => {
           activePage={page}
           totalPages={amountOfPages}
           onChange={handleChangeForPaginationInput}
+          queryString={queryString}
+          setQueryString={setQueryString}
         />
       </div>
       <div className={s['main-page__content']}>
-        <Tabs
-          isFlexible
-          activeTabId={activeTabIndex}
-          onClick={handleSetActiveTagIndex}
-          tabsConfigArr={configArr}
-        />
+        <Tabs isFlexible activeTabId={activeTabIndex} onClick={handleSetActiveTagIndex} tabsConfigArr={configArr} />
       </div>
     </div>
   );
