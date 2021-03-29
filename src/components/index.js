@@ -2,4 +2,5 @@ export { SearchForm } from './Forms/SearchForm/SearchForm';
 export { Header } from './Header/Header';
 export { Subscription } from './SubscriptionForWord/Subsccription';
 export { WordsOnMainPage } from './WordsOnMainPage/WordsOnMain';
-export { Noun } from './Tables/Noun/Noun';
+export { Noun } from './Tables/Noun';
+export { SurnameFirstType } from './Tables/SurnameFirstType';
