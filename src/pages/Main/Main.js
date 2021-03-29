@@ -18,8 +18,12 @@ export const Main = () => {
   const { words, wordJson, page, amountOfPages } = wordsReducer;
   const tablesConfig = [
     {
-      content: <Noun wordJson={wordJson} />,
-      part: ['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"'],
+      content: (
+        <Noun
+          wordJson={wordJson}
+          part={['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"']}
+        />
+      ),
     },
   ];
   const configArr = [
