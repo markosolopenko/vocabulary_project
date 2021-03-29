@@ -8,20 +8,21 @@ export const SurnameFirstType = ({ wordJson, conjuctions }) => {
       <thead className={s['surname1-table__head']}>
         <tr className={s['surname1-table__head__row']}>
           <th>Відмінок</th>
-          {lengthOfFirstColumn === 0 ? (
+          {!lengthOfFirstColumn ? (
             <>
+              <th>Множина</th>
               <th></th>
+            </>
+          ) : !lengthOfSecondColumn ? (
+            <>
               <th>Чол. р.</th>
-            </>
-          ) : (
-            <th>Чол. р.</th>
-          )}
-          {lengthOfSecondColumn === 0 ? (
-            <>
               <th></th>
             </>
           ) : (
-            <th>Множина</th>
+            <>
+              <th>Чол. р.</th>
+              <th>Множина</th>
+            </>
           )}
         </tr>
       </thead>
@@ -33,13 +34,15 @@ export const SurnameFirstType = ({ wordJson, conjuctions }) => {
             </td>
           ))}
         </tr>
-        <tr className={s['surname1-table__body__column']}>
-          {Object.values(wordJson.pluralCases).map((item, id) => (
-            <td className={s['surname1-table__body__column__item']} key={id}>
-              {item}
-            </td>
-          ))}
-        </tr>
+        {lengthOfFirstColumn && (
+          <tr className={s['surname1-table__body__column']}>
+            {Object.values(wordJson.pluralCases).map((item, id) => (
+              <td className={s['surname1-table__body__column__item']} key={id}>
+                {item}
+              </td>
+            ))}
+          </tr>
+        )}
         {lengthOfSecondColumn && (
           <tr className={s['surname1-table__body__column']}>
             {Object.values(wordJson.singleMaleFemaleCases).map((item, id) => (
