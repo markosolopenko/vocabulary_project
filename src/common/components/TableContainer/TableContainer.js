@@ -13,11 +13,14 @@ export const TableContainer = ({ tablesConfigArray, wordJson }) => {
           <div className={s['table-container__line']}></div>
 
           <div className={s['table-container__item']}>
-            {tablesConfigArray.map((table, id) => (
-              <div className={s['table-container__item__table']} key={id}>
-                {table.content}
-              </div>
-            ))}
+            {tablesConfigArray.map(
+              (table, id) =>
+                wordJson.wordType === table.part && (
+                  <div className={s['table-container__item__table']} key={id}>
+                    {table.content}
+                  </div>
+                ),
+            )}
           </div>
         </>
       )}

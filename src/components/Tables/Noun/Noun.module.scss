@@ -5,13 +5,13 @@
     &__row {
       display: flex;
       justify-content: space-around;
-      color: black;
-      border-bottom: 2px solid orange;
       padding: 7px;
+      border-bottom: 2px solid orange;
     }
   }
   &__body {
     display: flex;
+    justify-content: space-between;
     &__conjunction {
       display: flex;
       flex-direction: column;
@@ -23,7 +23,7 @@
         padding: 10px 4px 10px 4px;
       }
     }
-    &__row {
+    &__column {
       display: flex;
       flex-direction: column;
       flex-grow: 1;

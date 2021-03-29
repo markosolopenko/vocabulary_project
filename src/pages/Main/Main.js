@@ -11,6 +11,7 @@ import { Tabs, Pagination, TableContainer } from '../../common';
 import s from './Main.module.scss';
 
 export const Main = () => {
+  const conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий', 'кличний'];
   const [queryString, setQueryString] = useQueryState('page', 1);
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
@@ -20,7 +21,8 @@ export const Main = () => {
   const { words, wordJson, page, amountOfPages } = wordsReducer;
   const tablesConfig = [
     {
-      content: <Noun wordJson={wordJson} part={['іменник', 'прізвище 2', 'прізвище 1', 'числівник типу "два"']} />,
+      part: 'Noun',
+      content: <Noun wordJson={wordJson} conjuctions={conjuctions} />,
     },
   ];
   const configArr = [
