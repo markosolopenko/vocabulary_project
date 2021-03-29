@@ -5,7 +5,7 @@ import { useQueryState } from 'react-router-use-location-state';
 
 import { FETCH_FIRST_HUNDRED_WORDS, SET_PAGE, FETCH_WORD } from '../../actions';
 import { getWords, getWordByPage, getWord } from '../../api';
-import { SearchForm, Subscription, WordsOnMainPage, Noun, SurnameFirstType } from '../../components';
+import { SearchForm, Subscription, WordsOnMainPage, Noun, SurnameFirstType, SurnameSecondType } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
 import s from './Main.module.scss';
@@ -27,6 +27,10 @@ export const Main = () => {
     {
       part: 'SurnameFirstType',
       content: <SurnameFirstType wordJson={wordJson} conjuctions={conjuctions} />,
+    },
+    {
+      part: 'SurnameSecondType',
+      content: <SurnameSecondType wordJson={wordJson} conjuctions={conjuctions} />,
     },
   ];
   const configArr = [

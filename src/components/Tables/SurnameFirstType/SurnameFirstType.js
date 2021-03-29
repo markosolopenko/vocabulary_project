@@ -2,7 +2,7 @@ import s from './SurnameFirstType.module.scss';
 
 export const SurnameFirstType = ({ wordJson, conjuctions }) => {
   const lengthOfFirstColumn = Object.keys(wordJson.pluralCases).length !== 0;
-  const lengthOfSecondColumn = Object.keys(wordJson.pluralCases).length !== 0;
+  const lengthOfSecondColumn = Object.keys(wordJson.singleMaleFemaleCases).length !== 0;
   return (
     <table className={s['surname1-table']}>
       <thead className={s['surname1-table__head']}>

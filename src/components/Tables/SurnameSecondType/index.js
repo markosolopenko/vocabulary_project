@@ -1,0 +1,1 @@
+export { SurnameSecondType } from './SurnameSecondType';
