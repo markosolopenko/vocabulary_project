@@ -15,7 +15,7 @@ export const TableContainer = ({ tablesConfigArray, wordJson }) => {
           <div className={s['table-container__item']}>
             {tablesConfigArray.map(
               (table, id) =>
-                wordJson.wordType === table.part && (
+                (wordJson.wordType === table.part || table.part.includes(wordJson.wordType)) && (
                   <div className={s['table-container__item__table']} key={id}>
                     {table.content}
                   </div>

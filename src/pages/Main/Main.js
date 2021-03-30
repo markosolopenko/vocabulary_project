@@ -13,6 +13,7 @@ import {
   SurnameFirstType,
   SurnameSecondType,
   Surname,
+  Adjective,
 } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
@@ -20,6 +21,7 @@ import s from './Main.module.scss';
 
 export const Main = () => {
   const conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий', 'кличний'];
+  const conjuctions1 = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий'];
   const [queryString, setQueryString] = useQueryState('page', 1);
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
@@ -29,20 +31,24 @@ export const Main = () => {
   const { words, wordJson, page, amountOfPages } = wordsReducer;
   const tablesConfig = [
     {
-      part: 'Noun',
+      part: ['Noun'],
       content: <Noun wordJson={wordJson} conjuctions={conjuctions} />,
     },
     {
-      part: 'SurnameFirstType',
+      part: ['SurnameFirstType'],
       content: <SurnameFirstType wordJson={wordJson} conjuctions={conjuctions} />,
     },
     {
-      part: 'SurnameSecondType',
+      part: ['SurnameSecondType'],
       content: <SurnameSecondType wordJson={wordJson} conjuctions={conjuctions} />,
     },
     {
-      part: 'Surname',
+      part: ['Surname'],
       content: <Surname wordJson={wordJson} conjuctions={conjuctions} />,
+    },
+    {
+      part: ['Adjective', 'Participle'],
+      content: <Adjective wordJson={wordJson} conjuctions={conjuctions1} />,
     },
   ];
   const configArr = [
