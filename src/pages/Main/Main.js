@@ -15,6 +15,7 @@ import {
   Surname,
   Adjective,
   Pronoun,
+  NumbersSecond,
 } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
@@ -54,6 +55,10 @@ export const Main = () => {
     {
       part: ['Pronoun'],
       content: <Pronoun wordJson={wordJson} conjuctions={conjuctions1} />,
+    },
+    {
+      part: ['NumbersSecond'],
+      content: <NumbersSecond wordJson={wordJson} conjuctions={conjuctions1} />,
     },
   ];
   const configArr = [
