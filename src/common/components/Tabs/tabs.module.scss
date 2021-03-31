@@ -4,9 +4,9 @@
     position: relative;
     background: rgb(53, 50, 50);
 
-    &--flexible {
-      justify-content: space-between;
-    }
+    // &--flexible {
+    //   justify-content: space-between;
+    // }
     &__label {
       &--flexible {
         flex-grow: 1;

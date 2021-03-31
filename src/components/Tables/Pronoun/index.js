@@ -1,0 +1,1 @@
+export { Pronoun } from './Pronoun';

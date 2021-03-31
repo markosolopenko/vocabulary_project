@@ -14,6 +14,7 @@ import {
   SurnameSecondType,
   Surname,
   Adjective,
+  Pronoun,
 } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
@@ -47,8 +48,12 @@ export const Main = () => {
       content: <Surname wordJson={wordJson} conjuctions={conjuctions} />,
     },
     {
-      part: ['Adjective', 'Participle'],
+      part: ['Adjective', 'Participle', 'AdjectivePronoun', 'OrdinalNumbers', 'NumbersFirst'],
       content: <Adjective wordJson={wordJson} conjuctions={conjuctions1} />,
+    },
+    {
+      part: ['Pronoun'],
+      content: <Pronoun wordJson={wordJson} conjuctions={conjuctions1} />,
     },
   ];
   const configArr = [
