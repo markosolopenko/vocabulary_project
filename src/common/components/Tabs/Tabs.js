@@ -46,9 +46,7 @@ export const Tabs = ({ activeTabId, onClick, tabsConfigArr, isFlexible }) => {
   }, [activeTabId]);
   return (
     <div className={s.tabs}>
-      <div className={`${s.tabs__titles} ${isFlexible && s['tabs__titles--flexible']}`}>
-        {reduceLabels}
-      </div>
+      <div className={`${s.tabs__titles} ${isFlexible && s['tabs__titles--flexible']}`}>{reduceLabels}</div>
       <div className={s['tabs__indicator-space']}>
         <div className={s.tabs__underline} style={currTabWidth}></div>
       </div>

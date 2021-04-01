@@ -2,16 +2,24 @@
   display: flex;
   height: calc(100vh - 70px);
   &__aside {
-    width: 300px;
-    min-width: 300px;
     display: flex;
     flex-direction: column;
+    min-width: 300px;
     &__list {
       flex-grow: 1;
       overflow-y: scroll;
+      @media (max-width: 790px) {
+        height: 400px;
+      }
     }
   }
   &__content {
     flex-grow: 1;
+  }
+}
+
+@media (max-width: 790px) {
+  .main-page {
+    flex-direction: column;
   }
 }

@@ -1,10 +1,9 @@
 .table-container {
   padding: 10px;
-  &__item {
+  &__top {
     display: flex;
-    width: max-content;
-    margin: 0 auto;
-    padding: 7px;
+    justify-content: center;
+    padding: 10px;
     &__word {
       color: black;
       font-weight: 700;
@@ -19,5 +18,6 @@
   &__line {
     height: 1px;
     background-color: rgb(148, 144, 144);
+    margin-bottom: 10px;
   }
 }

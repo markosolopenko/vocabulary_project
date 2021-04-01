@@ -3,10 +3,9 @@
     display: flex;
     position: relative;
     background: rgb(53, 50, 50);
-
-    // &--flexible {
-    //   justify-content: space-between;
-    // }
+    @media (max-width: 770px) {
+      background-color: #023047;
+    }
     &__label {
       &--flexible {
         flex-grow: 1;
@@ -18,8 +17,12 @@
       cursor: pointer;
       color: white;
 
+      @media (max-width: 770px) {
+        color: white;
+      }
+
       &:hover {
-        color: #fca311;
+        color: white;
       }
     }
   }
@@ -34,6 +37,10 @@
     border: none;
     border-radius: 5px;
     position: absolute;
+
+    @media (max-width: 770px) {
+      background: #ffba08;
+    }
   }
 
   &__content {

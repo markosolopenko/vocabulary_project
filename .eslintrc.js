@@ -39,5 +39,6 @@ module.exports = {
     'no-nested-ternary': 0,
     'jsx-a11y/control-has-associated-label': 0,
     'react/jsx-indent': 0,
+    'no-plusplus': 0,
   },
 };
