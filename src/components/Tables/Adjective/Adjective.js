@@ -1,10 +1,9 @@
 import { Table, TableBody, TableHead, TableCell, TableRow, makeStyles, TableContainer, Paper } from '@material-ui/core';
-import s from './Adjective.module.scss';
 
 export const Adjective = ({ wordJson, conjuctions }) => {
   const useStyles = makeStyles({
     table: {
-      minWidth: 400,
+      minWidth: 650,
     },
     tableConjuctions: {
       borderBottom: '2px solid orange',
@@ -14,7 +13,16 @@ export const Adjective = ({ wordJson, conjuctions }) => {
     tableHeadRow: {
       fontWeight: 'bold',
       borderBottom: '2px solid orange',
-      fontSize: '15px',
+      fontSize: '16px',
+    },
+    tableBodyCell: {
+      fontSize: '16px',
+    },
+    sort: {
+      textAlign: 'center',
+      borderBottom: '2px solid orange',
+      fontWeight: 'bold',
+      margin: '0 auto',
     },
   });
   const classes = useStyles();
@@ -30,10 +38,18 @@ export const Adjective = ({ wordJson, conjuctions }) => {
           <TableCell className={classes.tableConjuctions} component="th" scope="row">
             {conjuctions[i]}
           </TableCell>
-          <TableCell align="center">{Object.values(wordJson.pluralCases)[i]}</TableCell>
-          <TableCell align="center">{Object.values(wordJson.singleMaleCases)[i]}</TableCell>
-          <TableCell align="center">{Object.values(wordJson.singleFemaleCases)[i]}</TableCell>
-          <TableCell align="center">{Object.values(wordJson.singleMiddleCases)[i]}</TableCell>
+          <TableCell className={classes.tableBodyCell} align="center">
+            {Object.values(wordJson.pluralCases)[i]}
+          </TableCell>
+          <TableCell className={classes.tableBodyCell} align="center">
+            {Object.values(wordJson.singleMaleCases)[i]}
+          </TableCell>
+          <TableCell className={classes.tableBodyCell} align="center">
+            {Object.values(wordJson.singleFemaleCases)[i]}
+          </TableCell>
+          <TableCell className={classes.tableBodyCell} align="center">
+            {Object.values(wordJson.singleMiddleCases)[i]}
+          </TableCell>
         </TableRow>
       );
     };
@@ -44,15 +60,20 @@ export const Adjective = ({ wordJson, conjuctions }) => {
   };
   return (
     <TableContainer component={Paper}>
-      <Table size="small">
+      <Table>
         <TableHead>
-          {/* <TableRow>
-            <TableCell className={classes.tableHeadRow}>Однина</TableCell>
-          </TableRow> */}
           <TableRow>
-            <TableCell className={classes.tableHeadRow} align="center">
+            <TableCell rowSpan={2} className={classes.tableHeadRow} align="center">
               Відмінок
             </TableCell>
+            <TableCell className={classes.sort} colSpan={3}>
+              Однина
+            </TableCell>
+            <TableCell rowSpan={2} className={classes.tableHeadRow} align="center">
+              Множина
+            </TableCell>
+          </TableRow>
+          <TableRow>
             <TableCell className={classes.tableHeadRow} align="center">
               Чол. р.
             </TableCell>
@@ -61,9 +82,6 @@ export const Adjective = ({ wordJson, conjuctions }) => {
             </TableCell>
             <TableCell className={classes.tableHeadRow} align="center">
               Сер. р.
-            </TableCell>
-            <TableCell className={classes.tableHeadRow} align="center">
-              Множина
             </TableCell>
           </TableRow>
         </TableHead>
