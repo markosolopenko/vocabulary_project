@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useQueryState } from 'react-router-use-location-state';
@@ -95,7 +95,6 @@ export const Main = () => {
     getWord(value).then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
-    // setQueryString(page);
   };
   return (
     <div className={s['main-page']}>

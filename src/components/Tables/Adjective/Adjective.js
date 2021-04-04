@@ -9,20 +9,23 @@ export const Adjective = ({ wordJson, conjuctions }) => {
       borderBottom: '2px solid orange',
       color: 'rgb(68, 66, 66)',
       fontWeight: '700',
+      fontSize: '16px',
+      width: '20%',
     },
-    tableHeadRow: {
+    tableHeadCell: {
       fontWeight: 'bold',
       borderBottom: '2px solid orange',
       fontSize: '16px',
     },
     tableBodyCell: {
       fontSize: '16px',
+      width: '20%',
     },
-    sort: {
+    top: {
       textAlign: 'center',
       borderBottom: '2px solid orange',
       fontWeight: 'bold',
-      margin: '0 auto',
+      fontSize: '16x',
     },
   });
   const classes = useStyles();
@@ -63,24 +66,24 @@ export const Adjective = ({ wordJson, conjuctions }) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell rowSpan={2} className={classes.tableHeadRow} align="center">
+            <TableCell rowSpan={2} className={classes.tableHeadCell} align="center">
               Відмінок
             </TableCell>
-            <TableCell className={classes.sort} colSpan={3}>
+            <TableCell className={classes.top} colSpan={3}>
               Однина
             </TableCell>
-            <TableCell rowSpan={2} className={classes.tableHeadRow} align="center">
+            <TableCell rowSpan={2} className={classes.tableHeadCell} align="center">
               Множина
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className={classes.tableHeadRow} align="center">
+            <TableCell className={classes.tableHeadCell} align="center">
               Чол. р.
             </TableCell>
-            <TableCell className={classes.tableHeadRow} align="center">
+            <TableCell className={classes.tableHeadCell} align="center">
               Жін. р.
             </TableCell>
-            <TableCell className={classes.tableHeadRow} align="center">
+            <TableCell className={classes.tableHeadCell} align="center">
               Сер. р.
             </TableCell>
           </TableRow>
