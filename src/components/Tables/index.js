@@ -5,3 +5,4 @@ export { Surname } from './Surname';
 export { Adjective } from './Adjective';
 export { Pronoun } from './Pronoun';
 export { NumbersSecond } from './NumbersSecond';
+export { ImperfectVerb } from './ImperfectVerb';

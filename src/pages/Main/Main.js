@@ -16,6 +16,7 @@ import {
   Adjective,
   Pronoun,
   NumbersSecond,
+  ImperfectVerb,
 } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
@@ -59,6 +60,10 @@ export const Main = () => {
     {
       part: ['NumbersSecond'],
       content: <NumbersSecond wordJson={wordJson} conjuctions={conjuctions1} />,
+    },
+    {
+      part: ['ImperfectVerb'],
+      content: <ImperfectVerb wordJson={wordJson} />,
     },
   ];
   const configArr = [
