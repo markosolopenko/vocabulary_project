@@ -17,6 +17,7 @@ import {
   Pronoun,
   NumbersSecond,
   ImperfectVerb,
+  CardinalNumbers,
 } from '../../components';
 import { Tabs, Pagination, TableContainer } from '../../common';
 
@@ -62,8 +63,12 @@ export const Main = () => {
       content: <NumbersSecond wordJson={wordJson} conjuctions={conjuctions1} />,
     },
     {
-      part: ['ImperfectVerb'],
+      part: ['ImperfectVerb', 'PerfectImperfectVerb', 'PerfectVerb'],
       content: <ImperfectVerb wordJson={wordJson} />,
+    },
+    {
+      part: ['CardinalNumbers'],
+      content: <CardinalNumbers wordJson={wordJson} conjuctions={conjuctions1} />,
     },
   ];
   const configArr = [

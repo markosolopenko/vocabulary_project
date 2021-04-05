@@ -11,4 +11,5 @@ export {
   Pronoun,
   NumbersSecond,
   ImperfectVerb,
+  CardinalNumbers,
 } from './Tables';

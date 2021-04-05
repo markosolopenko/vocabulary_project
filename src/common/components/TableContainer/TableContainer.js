@@ -7,7 +7,7 @@ export const TableContainer = ({ tablesConfigArray, wordJson }) => {
         <>
           <div className={s['table-container__top']}>
             <div className={s['table-container__top__word']}>{wordJson.word}</div>
-            <div className={s['table-container__top__dash']}>&nbsp;-&nbsp;</div>
+            <div className={s['table-container__top__dash']}>-</div>
             <div className={s['table-container__top__part']}>{wordJson.part}</div>
           </div>
           <div className={s['table-container__line']}></div>

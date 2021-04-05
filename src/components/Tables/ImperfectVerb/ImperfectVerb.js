@@ -8,7 +8,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 
 export const ImperfectVerb = ({ wordJson }) => {
-  const { imperative, futureTime, presentTime, pastTime } = wordJson;
+  const { imperative, futureTime, pastTime } = wordJson;
+  const { presentTime } = wordJson;
+  const { presentFutureTime } = wordJson;
 
   const useStyles = makeStyles({
     root: {
@@ -85,44 +87,92 @@ export const ImperfectVerb = ({ wordJson }) => {
               <TableCell className={classes.withBlackUnderline}>{futureTime.singleThirdIndividual}</TableCell>
               <TableCell className={classes.withBlackUnderline}>{futureTime.pluralThirdIndividual}</TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
-                ТЕПЕРІШНІЙ ЧАС
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={classes.withOrangeUnderline}>1 особа</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.singleFirstIndividual}</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.pluralFirstIndividual}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.singleSecondIndividual}</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.pluralSecondIndividual}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={classes.withOrangeUnderline}>3 особа</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.singleThirdIndividual}</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{presentTime.pluralThirdIndividual}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
-                Активний дієприкметник
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={classes.withBlackUnderline} colSpan={3}></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
-                Дієприслівник
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className={classes.withBlackUnderline} colSpan={3}>
-                {presentTime.adverb}
-              </TableCell>
-            </TableRow>
+            {presentFutureTime || presentTime ? (
+              <TableRow>
+                <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
+                  ТЕПЕРІШНІЙ ЧАС
+                </TableCell>
+              </TableRow>
+            ) : null}
+            {presentTime ? (
+              <>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>1 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleFirstIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralFirstIndividual}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleSecondIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralSecondIndividual}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>3 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleThirdIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralThirdIndividual}</TableCell>
+                </TableRow>
+              </>
+            ) : presentFutureTime ? (
+              <>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>1 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.singleFirstIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.pluralFirstIndividual}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.singleSecondIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.pluralSecondIndividual}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.withOrangeUnderline}>3 особа</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.singleThirdIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentFutureTime.pluralThirdIndividual}
+                  </TableCell>
+                </TableRow>
+              </>
+            ) : null}
+            {presentTime || presentFutureTime ? (
+              <>
+                <TableRow>
+                  <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
+                    Активний дієприкметник
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={classes.withBlackUnderline} colSpan={3}></TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
+                    Дієприслівник
+                  </TableCell>
+                </TableRow>
+              </>
+            ) : null}
+            {presentTime ? (
+              <TableRow>
+                <TableCell className={classes.withBlackUnderline} colSpan={3}>
+                  {presentTime.adverb}
+                </TableCell>
+              </TableRow>
+            ) : presentFutureTime ? (
+              <TableRow>
+                <TableCell className={classes.withBlackUnderline} colSpan={3}>
+                  {presentFutureTime.adverb}
+                </TableCell>
+              </TableRow>
+            ) : null}
             <TableRow>
               <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
                 МИНУЛИЙ ЧАС
