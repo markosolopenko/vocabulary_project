@@ -1,14 +1,11 @@
 import { useEffect } from 'react';
 
-import { useQueryState } from 'react-router-use-location-state';
-
 import { ReactComponent as ArrowLeft } from '../../../assets/arrowLeft.svg';
 import { ReactComponent as ArrowRight } from '../../../assets/arrowRight.svg';
 
 import s from './Pagination.module.scss';
 
-export const Pagination = ({ onChange, activePage, totalPages }) => {
-  const [queryString, setQueryString] = useQueryState('page', 1);
+export const Pagination = ({ onChange, activePage, totalPages, queryString, setQueryString }) => {
   useEffect(() => {
     onChange(queryString);
   }, [queryString]);
@@ -27,7 +24,7 @@ export const Pagination = ({ onChange, activePage, totalPages }) => {
               setQueryString(e.target.value);
             }
           }}
-          value={queryString}
+          value={activePage}
         />
       </div>
       <div className={s.pagination__text}>з</div>

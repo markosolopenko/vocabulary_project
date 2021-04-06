@@ -1,0 +1,24 @@
+.table-container {
+  padding: 10px;
+  &__top {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    &__word {
+      color: black;
+      font-weight: 700;
+    }
+    &__dash {
+      color: rgb(128, 120, 120);
+      margin: 0 5px;
+    }
+    &__part {
+      color: rgb(128, 120, 120);
+    }
+  }
+  &__line {
+    height: 1px;
+    background-color: rgb(148, 144, 144);
+    margin-bottom: 10px;
+  }
+}

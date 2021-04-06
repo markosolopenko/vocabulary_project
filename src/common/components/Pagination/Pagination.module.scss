@@ -6,13 +6,13 @@
   background: rgb(53, 50, 50);
   &__arrow-back,
   &__arrow-forward {
-    width: 10px;
-    height: 10px;
     color: white;
     padding: 5px;
     border-radius: 10px;
     border: 1px solid white;
     cursor: pointer;
+    height: 20px;
+    width: 20px;
 
     &:hover {
       background-color: white;
@@ -36,6 +36,7 @@
       width: 60px;
       height: 20px;
       border-radius: 5px;
+      padding: 4px;
     }
   }
 }
