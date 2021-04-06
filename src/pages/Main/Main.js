@@ -70,6 +70,10 @@ export const Main = () => {
       part: ['CardinalNumbers'],
       content: <CardinalNumbers wordJson={wordJson} conjuctions={conjuctions1} />,
     },
+    {
+      part: ['Constant'],
+      content: <h3 style={{ textAlign: 'center' }}>Незмінювана словникова одиниця</h3>,
+    },
   ];
   const configArr = [
     {
