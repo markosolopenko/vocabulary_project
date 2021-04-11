@@ -1,25 +1,15 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: linear-gradient(rgb(0, 21, 41) 40%, rgb(53, 50, 50) 100%);
+  padding: 5px 0 5px 40px;
   height: 70px;
-  padding: 0 30px;
-
   &__logo {
-    border: 2px solid orange;
-    padding: 0.3rem;
-    color: orange;
-    font-size: 25px;
+    color: white;
+    font-size: 30px;
     font-weight: bold;
-  }
-  &__nav-bar {
-    &__item {
-      color: orange;
-      text-decoration: underline;
-
-      &:hover {
-        color: orange;
-      }
-    }
+    height: 40px;
+    border-bottom: 1px solid orange;
+    border-top: 1px solid orange;
+    padding: 6px;
+    border-radius: 5px;
   }
 }
