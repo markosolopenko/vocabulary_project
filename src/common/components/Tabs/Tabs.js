@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 
-import s from './Tabs.module.scss';
+import s from './tabs.module.scss';
 
 export const Tabs = ({ activeTabId, onClick, tabsConfigArr, isFlexible }) => {
   const refs = useRef({});

@@ -84,7 +84,7 @@ export const Main = () => {
     {
       id: 2,
       label: 'Опис',
-      content: <Subscription />,
+      content: <Subscription wordJson={wordJson} />,
     },
   ];
 

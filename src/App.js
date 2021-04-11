@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import { Header } from './components/index';
+import { HeaderPage } from './components/index';
 import { Main, Words } from './pages';
 
 export const App = () => {
   return (
     <Route>
       <div className="app">
-        <Header />
+        <HeaderPage />
         <main>
           <Switch>
             <Route path="/main" component={Main} />

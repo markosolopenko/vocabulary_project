@@ -1,0 +1,7 @@
+.subscription-tab {
+  display: flex;
+  flex-direction: column;
+  &__element {
+    padding: 10px;
+  }
+}
