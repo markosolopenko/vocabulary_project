@@ -27,6 +27,7 @@ export const Main = () => {
   const conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий', 'кличний'];
   const conjuctions1 = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий'];
   const [queryString, setQueryString] = useQueryState('page', 1);
+  const [queryWord, setQueryWord] = useQueryState('word', '');
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector((state) => state);
@@ -95,6 +96,9 @@ export const Main = () => {
         payload: { details: data.details, amount: data.pagesCount },
       });
     });
+    getWord(queryWord).then((data) => {
+      dispatch({ type: FETCH_WORD, payload: data });
+    });
   }, [page]);
   const handleSetActiveTagIndex = (id) => {
     setActiveTabIndex(id);
@@ -105,15 +109,17 @@ export const Main = () => {
   const handleSearchButtonClick = (value) => {
     getWordByPage(value).then((data) => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
+      setQueryString(data.pageNumber);
     });
     getWord(value).then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });
+      setQueryWord(value);
     });
   };
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
-        <SearchForm onSearch={handleSearchButtonClick} />
+        <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} />
         <div className={s['main-page__aside__list']}>
           <WordsOnMainPage words={words} />
         </div>
