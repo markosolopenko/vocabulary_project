@@ -1,8 +1,14 @@
 .subscription {
-  &__item {
+  &__root {
+    min-width: 275;
+    margin: 20px 0;
     &__definition {
     }
     &__meaning {
     }
   }
+}
+
+.not-found {
+  font-size: 30px;
 }
