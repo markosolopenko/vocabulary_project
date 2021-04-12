@@ -1,6 +1,6 @@
 export { SearchForm } from './Forms/SearchForm/SearchForm';
-export { Header } from './Header/Header';
-export { Subscription } from './SubscriptionForWord/Subsccription';
+export { HeaderPage } from './Header/Header';
+export { Subscription } from './SubscriptionForWord';
 export { WordsOnMainPage } from './WordsOnMainPage/WordsOnMain';
 export {
   Noun,

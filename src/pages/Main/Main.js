@@ -84,7 +84,7 @@ export const Main = () => {
     {
       id: 2,
       label: 'Опис',
-      content: <Subscription />,
+      content: <Subscription wordJson={wordJson} />,
     },
   ];
 
@@ -126,7 +126,12 @@ export const Main = () => {
         />
       </div>
       <div className={s['main-page__content']}>
-        <Tabs isFlexible activeTabId={activeTabIndex} onClick={handleSetActiveTagIndex} tabsConfigArr={configArr} />
+        <Tabs
+          isFlexible
+          activeTabId={activeTabIndex}
+          onClick={handleSetActiveTagIndex}
+          tabsConfigArr={configArr}
+        />
       </div>
     </div>
   );

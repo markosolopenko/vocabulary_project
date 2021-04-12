@@ -1,10 +1,17 @@
-import { Table, TableBody, TableHead, TableCell, TableRow, makeStyles, TableContainer, Paper } from '@material-ui/core';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableCell,
+  TableRow,
+  makeStyles,
+  TableContainer,
+  Paper,
+} from '@material-ui/core';
 
 export const Noun = ({ wordJson, conjuctions }) => {
   const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
+    table: {},
     tableConjuctions: {
       borderBottom: '2px solid orange',
       color: 'rgb(68, 66, 66)',

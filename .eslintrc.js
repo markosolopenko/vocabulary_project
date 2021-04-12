@@ -40,5 +40,7 @@ module.exports = {
     'jsx-a11y/control-has-associated-label': 0,
     'react/jsx-indent': 0,
     'no-plusplus': 0,
+    'react/jsx-one-expression-per-line': 0,
+    'react/jsx-boolean-value': 0,
   },
 };

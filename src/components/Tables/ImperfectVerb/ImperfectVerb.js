@@ -13,12 +13,7 @@ export const ImperfectVerb = ({ wordJson }) => {
   const { presentFutureTime } = wordJson;
 
   const useStyles = makeStyles({
-    root: {
-      width: '100%',
-    },
-    container: {
-      maxHeight: 540,
-    },
+    container: {},
     withOrangeUnderline: {
       borderBottom: '2px solid orange',
       fontWeight: 'bold',
@@ -64,8 +59,12 @@ export const ImperfectVerb = ({ wordJson }) => {
             </TableRow>
             <TableRow>
               <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{imperative.singleSecondIndividual}</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{imperative.pluralSecondIndividual}</TableCell>
+              <TableCell className={classes.withBlackUnderline}>
+                {imperative.singleSecondIndividual}
+              </TableCell>
+              <TableCell className={classes.withBlackUnderline}>
+                {imperative.pluralSecondIndividual}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell className={`${classes.withOrangeUnderline} ${classes.title}`} colSpan={3}>
@@ -79,8 +78,12 @@ export const ImperfectVerb = ({ wordJson }) => {
             </TableRow>
             <TableRow>
               <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{futureTime.singleSecondIndividual}</TableCell>
-              <TableCell className={classes.withBlackUnderline}>{futureTime.pluralSecondIndividual}</TableCell>
+              <TableCell className={classes.withBlackUnderline}>
+                {futureTime.singleSecondIndividual}
+              </TableCell>
+              <TableCell className={classes.withBlackUnderline}>
+                {futureTime.pluralSecondIndividual}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell className={classes.withOrangeUnderline}>3 особа</TableCell>
@@ -98,18 +101,30 @@ export const ImperfectVerb = ({ wordJson }) => {
               <>
                 <TableRow>
                   <TableCell className={classes.withOrangeUnderline}>1 особа</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleFirstIndividual}</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralFirstIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.singleFirstIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.pluralFirstIndividual}
+                  </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className={classes.withOrangeUnderline}>2 особа</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleSecondIndividual}</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralSecondIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.singleSecondIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.pluralSecondIndividual}
+                  </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className={classes.withOrangeUnderline}>3 особа</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.singleThirdIndividual}</TableCell>
-                  <TableCell className={classes.withBlackUnderline}>{presentTime.pluralThirdIndividual}</TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.singleThirdIndividual}
+                  </TableCell>
+                  <TableCell className={classes.withBlackUnderline}>
+                    {presentTime.pluralThirdIndividual}
+                  </TableCell>
                 </TableRow>
               </>
             ) : presentFutureTime ? (

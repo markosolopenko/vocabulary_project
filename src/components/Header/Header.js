@@ -1,19 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import s from './Header.module.scss';
+import 'antd/dist/antd.css';
 
-export const Header = () => {
+import { Layout } from 'antd';
+
+import s from './header.module.scss';
+
+const { Header } = Layout;
+
+export const HeaderPage = () => {
   return (
-    <div className={s.header}>
-      <Link to="/main" className="link">
-        <div className={s.header__logo}>Vitalik Vocabulary</div>
-      </Link>
-      <div className={s['header__nav-bar']}>
-        <Link to="/words" className="link">
-          <div className={s['header__nav-bar__item']}>words</div>
-        </Link>
-      </div>
-    </div>
+    <Header className={s.header}>
+      <span className={s.header__logo}>S&ensp; S&ensp;L&ensp;U&ensp;W</span>
+    </Header>
   );
 };
