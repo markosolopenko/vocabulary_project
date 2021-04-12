@@ -41,5 +41,6 @@ module.exports = {
     'react/jsx-indent': 0,
     'no-plusplus': 0,
     'react/jsx-one-expression-per-line': 0,
+    'react/jsx-boolean-value': 0,
   },
 };

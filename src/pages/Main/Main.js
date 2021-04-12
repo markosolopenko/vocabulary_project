@@ -126,7 +126,12 @@ export const Main = () => {
         />
       </div>
       <div className={s['main-page__content']}>
-        <Tabs isFlexible activeTabId={activeTabIndex} onClick={handleSetActiveTagIndex} tabsConfigArr={configArr} />
+        <Tabs
+          isFlexible
+          activeTabId={activeTabIndex}
+          onClick={handleSetActiveTagIndex}
+          tabsConfigArr={configArr}
+        />
       </div>
     </div>
   );

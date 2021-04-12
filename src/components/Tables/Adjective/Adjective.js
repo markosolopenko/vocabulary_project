@@ -1,17 +1,18 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableCell,
+  TableRow,
+  makeStyles,
+  TableContainer,
+  Paper,
+} from '@material-ui/core';
 
 export const Adjective = ({ wordJson, conjuctions }) => {
   const useStyles = makeStyles({
     table: {
-      minWidth: 650,
-      minHeight: 540,
+      padding: 0,
     },
     tableConjuctions: {
       borderBottom: '2px solid orange',
@@ -47,11 +48,19 @@ export const Adjective = ({ wordJson, conjuctions }) => {
     const callback = (i) => {
       return (
         <TableRow key={i}>
-          <TableCell className={classes.tableConjuctions}>{conjuctions[i]}</TableCell>
+          <TableCell className={classes.tableConjuctions} component="th" scope="row">
+            {conjuctions[i]}
+          </TableCell>
           <TableCell className={classes.tableBodyCell}>{Object.values(wordJson.pluralCases)[i]}</TableCell>
-          <TableCell className={classes.tableBodyCell}>{Object.values(wordJson.singleMaleCases)[i]}</TableCell>
-          <TableCell className={classes.tableBodyCell}>{Object.values(wordJson.singleFemaleCases)[i]}</TableCell>
-          <TableCell className={classes.tableBodyCell}>{Object.values(wordJson.singleMiddleCases)[i]}</TableCell>
+          <TableCell className={classes.tableBodyCell}>
+            {Object.values(wordJson.singleMaleCases)[i]}
+          </TableCell>
+          <TableCell className={classes.tableBodyCell}>
+            {Object.values(wordJson.singleFemaleCases)[i]}
+          </TableCell>
+          <TableCell className={classes.tableBodyCell}>
+            {Object.values(wordJson.singleMiddleCases)[i]}
+          </TableCell>
         </TableRow>
       );
     };

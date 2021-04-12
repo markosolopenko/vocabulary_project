@@ -9,9 +9,9 @@ export const Subscription = ({ wordJson }) => {
     <div className={s.subscription}>
       {Object.keys(wordJson).length !== 0 && wordJson.definitions.length !== 0 ? (
         wordJson.definitions.map((definition, id) => (
-          <Card className={s.subscription__root}>
+          <Card className={s.subscription__root} key={id}>
             <CardContent>
-              <Typography variant="h7" component="h3" key={id}>
+              <Typography variant="h6" component="h5">
                 {definition.definition}
               </Typography>
               {definition.meanings &&

@@ -27,7 +27,7 @@ export const WordsOnMainPage = ({ words }) => {
           }}
           key={id}
           className={s['words-box__item']}
-          style={idOfEl === word.id ? { color: 'white', backgroundColor: 'black' } : null}
+          style={idOfEl === word.id ? { color: 'white', backgroundColor: 'rgb(59, 57, 57)' } : null}
         >
           {word.word}
         </div>

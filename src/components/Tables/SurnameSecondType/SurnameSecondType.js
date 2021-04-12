@@ -1,13 +1,20 @@
-import { Table, TableBody, TableHead, TableCell, TableRow, makeStyles, TableContainer, Paper } from '@material-ui/core';
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableCell,
+  TableRow,
+  makeStyles,
+  TableContainer,
+  Paper,
+} from '@material-ui/core';
 
 export const SurnameSecondType = ({ wordJson, conjuctions }) => {
   const lengthOfFirstColumn = Object.keys(wordJson.pluralCases).length !== 0;
   const lengthOfSecondColumn = Object.keys(wordJson.singleMaleCases).length !== 0;
 
   const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
+    table: {},
     tableConjuctions: {
       borderBottom: '2px solid orange',
       color: 'rgb(68, 66, 66)',
