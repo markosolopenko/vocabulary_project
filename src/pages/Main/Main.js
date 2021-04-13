@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useQueryState } from 'react-router-use-location-state';
@@ -27,6 +27,7 @@ export const Main = () => {
   const conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий', 'кличний'];
   const conjuctions1 = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий'];
   const [queryString, setQueryString] = useQueryState('page', 1);
+  const [queryWord, setQueryWord] = useQueryState('word', '');
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector((state) => state);
@@ -87,7 +88,7 @@ export const Main = () => {
       content: <Subscription wordJson={wordJson} />,
     },
   ];
-
+  const myRef = useRef();
   useEffect(() => {
     getWords(page).then((data) => {
       dispatch({
@@ -95,27 +96,30 @@ export const Main = () => {
         payload: { details: data.details, amount: data.pagesCount },
       });
     });
+    getWord(queryWord || 'Привіт').then((data) => {
+      dispatch({ type: FETCH_WORD, payload: data });
+    });
   }, [page]);
-  const handleSetActiveTagIndex = (id) => {
+  const handleSetActiveTagIndex = useCallback((id) => {
     setActiveTabIndex(id);
-  };
+  }, []);
   const handleChangeForPaginationInput = (pageNum) => {
     dispatch({ type: SET_PAGE, payload: { page: pageNum } });
   };
-  const handleSearchButtonClick = (value) => {
+
+  const handleSearchButtonClick = useCallback((value) => {
     getWordByPage(value).then((data) => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
+      setQueryString(data.pageNumber);
     });
-    getWord(value).then((data) => {
-      dispatch({ type: FETCH_WORD, payload: data });
-    });
-  };
+    setQueryWord(value);
+  }, []);
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
-        <SearchForm onSearch={handleSearchButtonClick} />
+        <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} words={words} />
         <div className={s['main-page__aside__list']}>
-          <WordsOnMainPage words={words} />
+          <WordsOnMainPage words={words} myRef={myRef} setQueryWord={setQueryWord} wordJson={wordJson} />
         </div>
         <Pagination
           activePage={page}
