@@ -100,25 +100,26 @@ export const Main = () => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
   }, [page]);
-  const handleSetActiveTagIndex = (id) => {
+  const handleSetActiveTagIndex = useCallback((id) => {
     setActiveTabIndex(id);
-  };
+  }, []);
   const handleChangeForPaginationInput = (pageNum) => {
     dispatch({ type: SET_PAGE, payload: { page: pageNum } });
   };
-  const handleSearchButtonClick = (value) => {
+
+  const handleSearchButtonClick = useCallback((value) => {
     getWordByPage(value).then((data) => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
       setQueryString(data.pageNumber);
     });
     setQueryWord(value);
-  };
+  }, []);
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
         <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} words={words} />
         <div className={s['main-page__aside__list']}>
-          <WordsOnMainPage words={words} wordJson={wordJson} myRef={myRef} />
+          <WordsOnMainPage words={words} myRef={myRef} setQueryWord={setQueryWord} wordJson={wordJson} />
         </div>
         <Pagination
           activePage={page}
