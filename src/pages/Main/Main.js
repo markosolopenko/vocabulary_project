@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useQueryState } from 'react-router-use-location-state';
@@ -88,7 +88,7 @@ export const Main = () => {
       content: <Subscription wordJson={wordJson} />,
     },
   ];
-
+  const myRef = useRef();
   useEffect(() => {
     getWords(page).then((data) => {
       dispatch({
@@ -96,7 +96,7 @@ export const Main = () => {
         payload: { details: data.details, amount: data.pagesCount },
       });
     });
-    getWord(queryWord).then((data) => {
+    getWord(queryWord || 'Привіт').then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
   }, [page]);
@@ -111,17 +111,14 @@ export const Main = () => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
       setQueryString(data.pageNumber);
     });
-    getWord(value).then((data) => {
-      dispatch({ type: FETCH_WORD, payload: data });
-      setQueryWord(value);
-    });
+    setQueryWord(value);
   };
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
-        <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} />
+        <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} words={words} />
         <div className={s['main-page__aside__list']}>
-          <WordsOnMainPage words={words} />
+          <WordsOnMainPage words={words} wordJson={wordJson} myRef={myRef} />
         </div>
         <Pagination
           activePage={page}

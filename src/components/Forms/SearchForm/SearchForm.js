@@ -4,7 +4,7 @@ import { ReactComponent as Search } from '../../../assets/search.svg';
 
 import s from './SerachForm.module.scss';
 
-export const SearchForm = ({ onSearch, currentWord }) => {
+export const SearchForm = ({ onSearch, currentWord, words }) => {
   const [value, setValue] = useState('');
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -17,9 +17,11 @@ export const SearchForm = ({ onSearch, currentWord }) => {
         placeholder="Search Word"
         defaultValue={currentWord}
       />
-      <button type="submit" onClick={() => onSearch(value)} className={s['search-form__button']}>
-        <Search className={s['search-form__button__icon']} />
-      </button>
+      {words.length !== 0 && (
+        <button type="submit" onClick={() => onSearch(value)} className={s['search-form__button']}>
+          <Search className={s['search-form__button__icon']} />
+        </button>
+      )}
     </div>
   );
 };
