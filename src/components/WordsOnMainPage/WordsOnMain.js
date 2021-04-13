@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getWord } from '../../api/getWord';
 import { FETCH_WORD } from '../../actions';
 
-import s from './WordsOnMainPage.module.scss';
+import s from './wordsOnMainPage.module.scss';
 
 export const WordsOnMainPage = ({ words, myRef, setQueryWord, wordJson }) => {
   const dispatch = useDispatch();

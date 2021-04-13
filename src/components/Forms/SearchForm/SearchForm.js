@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { ReactComponent as Search } from '../../../assets/search.svg';
 
-import s from './SerachForm.module.scss';
+import s from './serachForm.module.scss';
 
 export const SearchForm = ({ onSearch, currentWord, words }) => {
   const [value, setValue] = useState('');
