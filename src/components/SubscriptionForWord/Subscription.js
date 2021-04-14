@@ -9,22 +9,21 @@ export const Subscription = ({ wordJson }) => {
     <div className={s.subscription}>
       {Object.keys(wordJson).length !== 0 && wordJson.definitions.length !== 0 ? (
         wordJson.definitions.map((definition, id) => (
-          <>
+          <div key={id}>
             <Typography component="h4" style={{ fontWeight: '600', padding: '10px', minWidth: '500px' }}>
               {definition.definition}
             </Typography>
             {definition.meanings &&
               definition.meanings.map((meaning, index) => (
-                <Card className={s.subscription__root} key={id}>
+                <Card className={s.subscription__root} key={index}>
                   <CardContent>
-                    <Typography variant="body2" component="p" key={index}>
+                    <Typography variant="body2" component="p">
                       {meaning.meaning}
                     </Typography>
                   </CardContent>
                 </Card>
               ))}
-            )
-          </>
+          </div>
         ))
       ) : (
         <div className={s['not-found']}>Для цього слова немає опису</div>

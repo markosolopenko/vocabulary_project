@@ -26,8 +26,8 @@ import s from './Main.module.scss';
 export const Main = () => {
   const conjuctions = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий', 'кличний'];
   const conjuctions1 = ['називний', 'родовий', 'давальний', 'знахідний', 'орудний', 'місцевий'];
-  const [queryString, setQueryString] = useQueryState('page', 1);
-  const [queryWord, setQueryWord] = useQueryState('word', '');
+  const [queryString, setQueryString] = useQueryState('page', 1781);
+  const [queryWord, setQueryWord] = useQueryState('word', 'Привіт');
   const defaultTabId = 1;
   const [activeTabIndex, setActiveTabIndex] = useState(defaultTabId);
   const store = useSelector((state) => state);
@@ -96,7 +96,7 @@ export const Main = () => {
         payload: { details: data.details, amount: data.pagesCount },
       });
     });
-    getWord(queryWord || 'Привіт').then((data) => {
+    getWord(queryWord).then((data) => {
       dispatch({ type: FETCH_WORD, payload: data });
     });
   }, [page]);
@@ -107,7 +107,9 @@ export const Main = () => {
     dispatch({ type: SET_PAGE, payload: { page: pageNum } });
   };
 
-  const handleSearchButtonClick = useCallback((value) => {
+  const handleSearchButtonClick = useCallback((e, value) => {
+    e.preventDefault();
+    e.stopPropagation();
     getWordByPage(value).then((data) => {
       dispatch({ type: SET_PAGE, payload: { page: data.pageNumber } });
       setQueryString(data.pageNumber);
