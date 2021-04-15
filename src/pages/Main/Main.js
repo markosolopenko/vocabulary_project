@@ -119,7 +119,12 @@ export const Main = () => {
   return (
     <div className={s['main-page']}>
       <div className={s['main-page__aside']}>
-        <SearchForm onSearch={handleSearchButtonClick} currentWord={queryWord} words={words} />
+        <SearchForm
+          onSearch={handleSearchButtonClick}
+          currentWord={queryWord}
+          words={words}
+          wordJson={wordJson}
+        />
         <div className={s['main-page__aside__list']}>
           <WordsOnMainPage words={words} myRef={myRef} setQueryWord={setQueryWord} wordJson={wordJson} />
         </div>

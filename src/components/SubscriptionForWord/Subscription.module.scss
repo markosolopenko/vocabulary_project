@@ -7,4 +7,8 @@
 
 .not-found {
   font-size: 30px;
+  height: calc(100vh - 170px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
